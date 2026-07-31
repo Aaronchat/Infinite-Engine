@@ -1,2 +1,2 @@
-# Randomizer
+# Infinite Engine
 ChatGPT prompt randomizer
