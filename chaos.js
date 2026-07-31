@@ -1,0 +1,1 @@
+const chaos=['Werewolves','Alien invasion','Giant penguins','Robot rebellion','Zombie outbreak','Dragon attack'];
