@@ -1,5 +1,5 @@
-BUILD003
-- Added role system
-- Outfit collections
-- Sleepwear collection
-- Prompt updates
+# Infinite Engine Build 004
+
+- Expanded character list.
+- Expanded outfits.
+- Simplified prompt generation.

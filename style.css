@@ -1,1 +1,1 @@
-body{background:#111;color:#eee;font-family:Arial;display:flex;justify-content:center}.card{max-width:800px;background:#222;padding:20px;border-radius:12px;margin:20px}button{margin:5px;padding:10px}
+body{background:#111;color:#eee;font-family:Arial}.card{max-width:700px;margin:30px auto;padding:20px;background:#222;border-radius:12px}textarea{width:100%}button{margin:8px;padding:10px 16px}
