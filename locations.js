@@ -1,0 +1,1 @@
+const LOCATIONS=['Ancient castle','Tokyo rooftop','Alien jungle','Abandoned mall','Texas ranch'];

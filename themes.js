@@ -1,0 +1,1 @@
+const THEMES={horror:true,fantasy:true,scifi:true,modern:true};

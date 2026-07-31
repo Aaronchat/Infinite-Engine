@@ -1,0 +1,1 @@
+const OUTFITS=['Evening gown','Power armor','Leather jacket','Spacesuit','Cowgirl outfit'];

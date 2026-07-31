@@ -1,1 +1,1 @@
-const chaos=['Werewolves','Alien invasion','Giant penguins','Robot rebellion','Zombie outbreak','Dragon attack'];
+const CHAOS=[{theme:'horror',text:'Werewolves surround her'},{theme:'fantasy',text:'A dragon lands nearby'},{theme:'scifi',text:'Aliens invade the city'},{theme:'modern',text:'A flash mob erupts'}];
