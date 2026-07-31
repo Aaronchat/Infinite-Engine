@@ -1,1 +1,1 @@
-const LOCATIONS=['Ancient castle','Tokyo rooftop','Alien jungle','Abandoned mall','Texas ranch'];
+const LOCATIONS=['Ancient castle','Texas ranch','Tokyo rooftop','Alien jungle','Abandoned mall'];

@@ -1,3 +1,1 @@
-body{font-family:Arial;background:#111;color:#eee;display:flex;justify-content:center}
-.card{max-width:700px;margin:30px;padding:20px;background:#222;border-radius:12px}
-button{margin:5px;padding:10px 16px}textarea{width:100%;}
+body{background:#111;color:#eee;font-family:Arial;display:flex;justify-content:center}.card{max-width:700px;background:#222;padding:20px;border-radius:12px;margin:30px}textarea{width:100%}button{padding:10px;margin:4px}
