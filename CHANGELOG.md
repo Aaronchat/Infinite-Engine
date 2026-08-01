@@ -1,5 +1,1 @@
-# Infinite Engine Build 004
-
-- Expanded character list.
-- Expanded outfits.
-- Simplified prompt generation.
+# Build 004.1\nFixed generation bug.

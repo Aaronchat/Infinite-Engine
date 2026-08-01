@@ -1,15 +1,12 @@
-const CHARACTERS=[
-'Busty Caucasian Elf','Busty Caucasian Archer','Busty Caucasian Dragon Tamer',
-'Busty Caucasian Cowgirl','Busty Caucasian Viking','Busty Caucasian Witch'];
-const OUTFITS=['Evening gown','Thong','Bikini','Leather armor','Power armor','Cowgirl outfit','Pajamas'];
-const LOCATIONS=['Ancient castle','Tokyo rooftop','Texas ranch','Abandoned mall','Space station'];
-const CHAOS=['Werewolves emerge from the shadows','Alien invasion begins','Dragon lands nearby','Flash mob surrounds the scene','Meteor shower lights the sky'];
+
+const C=["Busty Caucasian Elf","Busty Caucasian Archer","Busty Caucasian Dragon Tamer","Busty Caucasian Cowgirl"];
+const O=["Evening gown","Thong","Power armor","Pajamas"];
+const L=["Ancient castle","Tokyo rooftop","Texas ranch","Space station"];
+const H=["Alien invasion begins","Dragon lands nearby","Werewolves emerge from the shadows"];
 const pick=a=>a[Math.floor(Math.random()*a.length)];
-function gen(){
-let c=pick(CHARACTERS),o=pick(OUTFITS),l=pick(LOCATIONS),h=pick(CHAOS);
+function generate(){
+const c=pick(C),o=pick(O),l=pick(L),h=pick(H);
 character.textContent=c;outfit.textContent=o;location.textContent=l;chaos.textContent=h;
 prompt.value=`Photorealistic. Story orientation. ${c}. Wearing ${o}. At ${l}. ${h}.`;
 }
-gen.onclick=gen;
-copy.onclick=()=>navigator.clipboard.writeText(prompt.value);
-window.onload=gen;
+window.onload=()=>{gen.onclick=generate;copy.onclick=()=>navigator.clipboard.writeText(prompt.value);generate();}
