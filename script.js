@@ -39,7 +39,25 @@ function gen(){
  document.getElementById("prompt").value=
 `Photorealistic. Story orientation. ${val("character","Figure")} ${val("character","BodyShape")} ${val("character","Ethnicity")} Woman wearing ${parts.join(", ")}, at ${val("scene","Location")}. ${val("scene","Time")}, ${val("scene","Weather")}.`;
 }
-gen.onclick=gen;
-rand.onclick=()=>{document.querySelectorAll("select").forEach(s=>s.selectedIndex=0);gen();}
-copy.onclick=()=>navigator.clipboard.writeText(prompt.value);
+const generateButton=document.getElementById("gen");
+const resetButton=document.getElementById("rand");
+const copyButton=document.getElementById("copy");
+const promptBox=document.getElementById("prompt");
+
+generateButton.addEventListener("click",gen);
+
+resetButton.addEventListener("click",()=>{
+  document.querySelectorAll("select").forEach(s=>s.selectedIndex=0);
+  gen();
+});
+
+copyButton.addEventListener("click",()=>{
+  navigator.clipboard.writeText(promptBox.value);
+});
+
+// Live preview: update whenever a selection changes.
+document.querySelectorAll("select").forEach(s=>{
+  s.addEventListener("change",gen);
+});
+
 gen();
