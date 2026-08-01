@@ -1,1 +1,4 @@
-body{background:#111;color:#eee;font-family:Arial}.card{max-width:700px;margin:30px auto;padding:20px;background:#222;border-radius:10px}textarea{width:100%}button{margin:8px;padding:10px}
+body{background:#111;color:#eee;font-family:Arial,sans-serif}
+.card{max-width:760px;margin:30px auto;background:#222;padding:20px;border-radius:12px}
+textarea{width:100%;margin-top:10px}
+button{margin:8px 8px 0 0;padding:10px 16px}
