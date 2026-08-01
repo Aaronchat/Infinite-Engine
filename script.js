@@ -5,7 +5,9 @@ Ethnicity:["🎲 Random","Caucasian"],
 Figure:["🎲 Random","Busty","Very Busty","Extremely Busty","Hyper-Busty","Ultra-Busty","Buxom","Very Buxom","Extremely Buxom","Hyper-Buxom","Ultra-Buxom","Top-Heavy","Very Top-Heavy","Extremely Top-Heavy","Hyper Top-Heavy","Ultra Top-Heavy"],
 BodyShape:["🎲 Random","Slim","Athletic","Curvy","Voluptuous"],
 HairColor:["🎲 Random","Black","Dark Brown","Brown","Light Brown","Auburn","Blonde","Platinum Blonde","Strawberry Blonde","Red","Gray","Silver","White","Blue","Cyan","Green","Purple","Pink","Magenta","Teal","Orange"],
-Hairstyle:["🎲 Random","Long Straight","Long Wavy","Long Curly","Shoulder-Length","Bob Cut","Pixie Cut","Ponytail","High Ponytail","Twin Tails","Braided","French Braid","Side Braid","Bun","Messy Bun","Space Buns","Wolf Cut","Shag Cut","Mohawk","Undercut","Buzz Cut","Bald"]
+Hairstyle:["🎲 Random","Long Straight","Long Wavy","Long Curly","Shoulder-Length","Bob Cut","Pixie Cut","Ponytail","High Ponytail","Twin Tails","Braided","French Braid","Side Braid","Bun","Messy Bun","Space Buns","Wolf Cut","Shag Cut","Mohawk","Undercut","Buzz Cut","Bald"],
+EyeColor:["🎲 Random","Brown","Dark Brown","Hazel","Amber","Green","Blue","Gray","Violet"],
+Expression:["🎲 Random","Neutral","Calm","Happy","Smiling","Laughing","Playful","Confident","Serious","Determined","Stoic","Smirking","Flirty","Angry","Fierce","Sad","Surprised"]
 },
 outfit:{
 Top:["🎲 Random","White ribbed tank top","Black fitted tank top","Navy polo shirt","Scoop-neck tee","V-neck tee","Wrap top","Henley (top buttons undone)","White blouse"],
@@ -39,7 +41,7 @@ function gen(){
  let o=val("outfit","Outerwear"); if(o!=="None") parts.push(o);
  let a=val("outfit","Accessories"); if(a!=="None") parts.push(a);
  document.getElementById("prompt").value=
-`Photorealistic. Story orientation. ${val("character","Figure")} ${val("character","BodyShape")} ${val("character","Ethnicity")} woman with ${val("character","Hairstyle").toLowerCase()} ${val("character","HairColor").toLowerCase()} hair wearing ${parts.join(", ")}, at ${val("scene","Location")}. ${val("scene","Time")}, ${val("scene","Weather")}.`;
+`Photorealistic. Story orientation. ${val("character","Figure")} ${val("character","BodyShape")} ${val("character","Ethnicity")} woman with ${val("character","Hairstyle").toLowerCase()} ${val("character","HairColor").toLowerCase()} hair, ${val("character","EyeColor").toLowerCase()} eyes and a ${val("character","Expression").toLowerCase()} expression, wearing ${parts.join(", ")}, at ${val("scene","Location")}. ${val("scene","Time")}, ${val("scene","Weather")}.`;
 }
 const generateButton=document.getElementById("gen");
 const resetButton=document.getElementById("rand");
