@@ -1,6 +1,6 @@
-# Infinite Engine BUILD 015
+# Infinite Engine BUILD 016
 
-Build 015 adds independent tattoo placement controls.
+Build 016 adds independent tattoo placement controls.
 
 ## Added
 - Left Arm Tattoo

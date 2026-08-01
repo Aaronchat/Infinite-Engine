@@ -13,7 +13,8 @@ Freckles:["🎲 Random","None","Light","Moderate","Heavy"],
 LeftArmTattoo:["🎲 Random","None","Small Tattoo","Half Sleeve","Full Sleeve"],
 RightArmTattoo:["🎲 Random","None","Small Tattoo","Half Sleeve","Full Sleeve"],
 LeftLegTattoo:["🎲 Random","None","Small Tattoo","Half Sleeve","Full Sleeve"],
-RightLegTattoo:["🎲 Random","None","Small Tattoo","Half Sleeve","Full Sleeve"]
+RightLegTattoo:["🎲 Random","None","Small Tattoo","Half Sleeve","Full Sleeve"],
+TattooStyle:["🎲 Random","Traditional","Tribal","Japanese","Floral","Geometric","Blackwork","Watercolor","Realism"]
 },
 outfit:{
 Top:["🎲 Random","White ribbed tank top","Black fitted tank top","Navy polo shirt","Scoop-neck tee","V-neck tee","Wrap top","Henley (top buttons undone)","White blouse"],
@@ -50,16 +51,19 @@ function gen(){
  const freckles=val("character","Freckles");
  const skinDesc=freckles==="None"?`with ${skin} skin`:`with ${skin} skin and ${freckles.toLowerCase()} freckles`;
  function tattooPhrase(){
- const map=[
- ["LeftArmTattoo","left arm"],["RightArmTattoo","right arm"],["LeftLegTattoo","left leg"],["RightLegTattoo","right leg"]];
+ const style=val("character","TattooStyle").toLowerCase();
+ const map=[["LeftArmTattoo","left arm"],["RightArmTattoo","right arm"],["LeftLegTattoo","left leg"],["RightLegTattoo","right leg"]];
  const items=map.map(([k,p])=>({v:val("character",k),p})).filter(x=>x.v!=="None");
  if(!items.length) return "";
+ const fmt=(v,p)=>`with a ${style} ${v.toLowerCase()} tattoo on her ${p}`;
  const la=items.find(x=>x.p==="left arm"),ra=items.find(x=>x.p==="right arm");
  if(la&&ra&&la.v===ra.v&&(la.v==="Full Sleeve"||la.v==="Half Sleeve")){
-   items.splice(items.indexOf(ra),1);items.splice(items.indexOf(la),1);
-   items.unshift({text:`with ${la.v.toLowerCase()} tattoos on both arms`});
+   const others=items.filter(x=>x!==la&&x!==ra).map(x=>fmt(x.v,x.p).replace(/^with /,""));
+   let base=`with ${style} ${la.v.toLowerCase()} tattoos on both arms`;
+   if(others.length) base+=" and "+others.join(" and ");
+   return base;
  }
- const phrases=items.map(x=>x.text||`with a ${x.v.toLowerCase()} on her ${x.p}`);
+ const phrases=items.map(x=>fmt(x.v,x.p));
  if(phrases.length===1) return phrases[0];
  return phrases[0]+phrases.slice(1).map((p,i)=>i===phrases.length-2?` and ${p.replace(/^with /,"")}`:`, ${p.replace(/^with /,"")}`).join("");
  }
