@@ -1,12 +1,45 @@
 
-const figs=["🎲 Random","Busty","Very Busty","Extremely Busty","Hyper-Busty","Ultra-Busty","Buxom","Very Buxom","Extremely Buxom","Hyper-Buxom","Ultra-Buxom","Top-Heavy","Very Top-Heavy","Extremely Top-Heavy","Hyper Top-Heavy","Ultra Top-Heavy"];
-const eth=["🎲 Random","Caucasian"];
-const cats={Top:["🎲 Random","Navy polo shirt","White ribbed tank top","Wrap top"],Bottom:["🎲 Random","Khaki shorts","Blue jeans"],Footwear:["🎲 Random","Loafers","White sneakers","Cowboy boots"],Location:["🎲 Random","Downtown sidewalk","Texas ranch","Coffee shop"]};
-function fill(id,a){let s=document.getElementById(id);a.forEach(v=>s.add(new Option(v,v)));}
-fill("eth",eth);fill("fig",figs);
-let ui=document.getElementById("ui");
-Object.keys(cats).forEach(k=>{ui.insertAdjacentHTML("beforeend",`<label>${k}</label><select id='${k}'></select>`);fill(k,cats[k]);});
+const library={
+character:{
+Ethnicity:["🎲 Random","Caucasian"],
+Figure:["🎲 Random","Busty","Very Busty","Extremely Busty","Hyper-Busty","Ultra-Busty","Buxom","Very Buxom","Extremely Buxom","Hyper-Buxom","Ultra-Buxom","Top-Heavy","Very Top-Heavy","Extremely Top-Heavy","Hyper Top-Heavy","Ultra Top-Heavy"],
+BodyShape:["🎲 Random","Slim","Athletic","Curvy","Voluptuous"]
+},
+outfit:{
+Top:["🎲 Random","White ribbed tank top","Black fitted tank top","Navy polo shirt","Scoop-neck tee","V-neck tee","Wrap top","Henley (top buttons undone)","White blouse"],
+Bottom:["🎲 Random","Blue jeans","Khaki shorts","Light-wash cutoff denim shorts","Black leggings","Denim skirt"],
+Footwear:["🎲 Random","Cowboy boots","White sneakers","Loafers","Ankle boots"],
+Outerwear:["🎲 Random","None","Denim jacket","Leather jacket","Cardigan"],
+Accessories:["🎲 Random","None","Aviator sunglasses","Silver necklace","Brown leather tote"]
+},
+scene:{
+Location:["🎲 Random","Downtown sidewalk","Texas ranch","Coffee shop","Ancient castle"],
+Weather:["🎲 Random","Sunny","Cloudy","Golden hour","Light rain"],
+Time:["🎲 Random","Morning","Afternoon","Sunset","Night"]
+}
+};
+function addSection(id,obj){
+ const root=document.getElementById(id);
+ for(const [k,v] of Object.entries(obj)){
+  const lab=document.createElement('label');lab.textContent=k;
+  const sel=document.createElement('select');sel.id=k;
+  v.forEach(x=>sel.add(new Option(x,x)));
+  root.append(lab,sel);
+ }
+}
+addSection("character",library.character);
+addSection("outfit",library.outfit);
+addSection("scene",library.scene);
 const pick=a=>a[1+Math.floor(Math.random()*(a.length-1))];
-const val=(id,a)=>{let v=document.getElementById(id).value;return v==="🎲 Random"?pick(a):v;}
-function gen(){document.getElementById("p").value=`Photorealistic. Story orientation. ${val("fig",figs)} ${val("eth",eth)} Woman wearing ${val("Top",cats.Top)}, ${val("Bottom",cats.Bottom)}, ${val("Footwear",cats.Footwear)}, at ${val("Location",cats.Location)}.`;}
-g.onclick=gen;c.onclick=()=>navigator.clipboard.writeText(p.value);gen();
+const val=(group,key)=>{const s=document.getElementById(key).value;const arr=library[group][key];return s==="🎲 Random"?pick(arr):s;}
+function gen(){
+ let parts=[val("outfit","Top"),val("outfit","Bottom"),val("outfit","Footwear")];
+ let o=val("outfit","Outerwear"); if(o!=="None") parts.push(o);
+ let a=val("outfit","Accessories"); if(a!=="None") parts.push(a);
+ document.getElementById("prompt").value=
+`Photorealistic. Story orientation. ${val("character","Figure")} ${val("character","BodyShape")} ${val("character","Ethnicity")} Woman wearing ${parts.join(", ")}, at ${val("scene","Location")}. ${val("scene","Time")}, ${val("scene","Weather")}.`;
+}
+gen.onclick=gen;
+rand.onclick=()=>{document.querySelectorAll("select").forEach(s=>s.selectedIndex=0);gen();}
+copy.onclick=()=>navigator.clipboard.writeText(prompt.value);
+gen();
