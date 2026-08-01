@@ -1,26 +1,14 @@
-# BUILD 017 Roadmap
+# ROADMAP
 
-Completed
-- Tattoo Placement
-  - Left Arm
-  - Right Arm
-  - Left Leg
-  - Right Leg
-- Tattoo Styles
-  - Traditional
-  - Tribal
-  - Japanese
-  - Floral
-  - Geometric
-  - Blackwork
-  - Watercolor
-  - Realism
+## Current Build
+**Build 017 — Visibility Engine**
 
-Next Planned Build
+Introduces a data-driven Visibility Engine that omits hidden body features from generated prompts using clothing coverage metadata.
 
-BUILD 017 — Accessories
+## Next Planned Build
+**Build 018 — Accessories**
 
-Planned:
+Planned additions:
 - Glasses
 - Earrings
 - Necklace
@@ -29,4 +17,4 @@ Planned:
 - Rings
 - Hat
 
-Architecture should continue using the same modular category pattern established for Character attributes so additional accessory categories can be added without major refactoring.
+Accessories will integrate cleanly with the Visibility Engine for future prompt-generation enhancements.

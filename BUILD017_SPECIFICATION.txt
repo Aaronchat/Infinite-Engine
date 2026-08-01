@@ -1,0 +1,7 @@
+Infinite Engine Build 017: Visibility Engine
+
+- Data-driven coverage metadata per clothing item.
+- Visibility evaluated immediately before prompt generation.
+- Hidden body-region details omitted from prompt only.
+- UI selections and randomization unchanged.
+- Next planned build: Build 018 Accessories.

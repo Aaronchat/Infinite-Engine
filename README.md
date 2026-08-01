@@ -1,14 +1,16 @@
-# Infinite Engine BUILD 016
+# Infinite Engine — Build 017 Specification Package
 
-Build 016 adds independent tattoo placement controls.
+## Build Goal
+Build 017 introduces the **Visibility Engine**.
 
-## Added
-- Left Arm Tattoo
-- Right Arm Tattoo
-- Left Leg Tattoo
-- Right Leg Tattoo
+The Visibility Engine evaluates clothing coverage immediately before prompt generation and omits hidden body-region details while preserving all user selections.
 
-Each supports None, Small Tattoo, Half Sleeve, and Full Sleeve.
-All participate in prompt generation, Randomize, and Reset to Random.
+## Highlights
+- Data-driven clothing coverage metadata
+- Visibility evaluation after randomization
+- Prompt-only filtering
+- No UI changes
+- Extensible architecture for future clothing and accessories
 
-Forward compatible with planned Tattoo Styles in Build 016.
+## Next Planned Build
+Build 018 — Accessories
