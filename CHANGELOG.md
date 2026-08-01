@@ -1,5 +1,5 @@
-# BUILD 008
-
-- Added dropdown selectors for outfit categories.
-- Each category supports Random or manual selection.
-- Generate respects manual selections while randomizing Random categories.
+# BUILD 009
+- Manual dropdowns with Random option for every category.
+- Added Outerwear, Weather, and Time.
+- Randomize All button.
+- Cleaner prompt composition.
