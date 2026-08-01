@@ -1,10 +1,9 @@
-# BUILD 014
+# BUILD 015
 
 ## Added
-- Added Skin Tone character attribute.
-- Added Freckles character attribute.
-- Integrated both into prompt generation.
-- Added both to Randomize and Reset to Random.
+- Four Tattoo Placement attributes.
+- Natural language tattoo prompt generation.
+- Randomize and Reset to Random support.
 
 ## Verified
-- Existing Character, Outfit, and Scene behavior preserved.
+- Character, Outfit, and Scene behavior preserved.

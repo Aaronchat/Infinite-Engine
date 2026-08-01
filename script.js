@@ -9,7 +9,11 @@ Hairstyle:["🎲 Random","Long Straight","Long Wavy","Long Curly","Shoulder-Leng
 EyeColor:["🎲 Random","Brown","Dark Brown","Hazel","Amber","Green","Blue","Gray","Violet"],
 Expression:["🎲 Random","Neutral","Calm","Happy","Smiling","Laughing","Playful","Confident","Serious","Determined","Stoic","Smirking","Flirty","Angry","Fierce","Sad","Surprised"],
 SkinTone:["🎲 Random","Pale","Fair","Light","Medium","Olive","Tan"],
-Freckles:["🎲 Random","None","Light","Moderate","Heavy"]
+Freckles:["🎲 Random","None","Light","Moderate","Heavy"],
+LeftArmTattoo:["🎲 Random","None","Small Tattoo","Half Sleeve","Full Sleeve"],
+RightArmTattoo:["🎲 Random","None","Small Tattoo","Half Sleeve","Full Sleeve"],
+LeftLegTattoo:["🎲 Random","None","Small Tattoo","Half Sleeve","Full Sleeve"],
+RightLegTattoo:["🎲 Random","None","Small Tattoo","Half Sleeve","Full Sleeve"]
 },
 outfit:{
 Top:["🎲 Random","White ribbed tank top","Black fitted tank top","Navy polo shirt","Scoop-neck tee","V-neck tee","Wrap top","Henley (top buttons undone)","White blouse"],
@@ -45,8 +49,23 @@ function gen(){
  const skin=val("character","SkinTone").toLowerCase();
  const freckles=val("character","Freckles");
  const skinDesc=freckles==="None"?`with ${skin} skin`:`with ${skin} skin and ${freckles.toLowerCase()} freckles`;
+ function tattooPhrase(){
+ const map=[
+ ["LeftArmTattoo","left arm"],["RightArmTattoo","right arm"],["LeftLegTattoo","left leg"],["RightLegTattoo","right leg"]];
+ const items=map.map(([k,p])=>({v:val("character",k),p})).filter(x=>x.v!=="None");
+ if(!items.length) return "";
+ const la=items.find(x=>x.p==="left arm"),ra=items.find(x=>x.p==="right arm");
+ if(la&&ra&&la.v===ra.v&&(la.v==="Full Sleeve"||la.v==="Half Sleeve")){
+   items.splice(items.indexOf(ra),1);items.splice(items.indexOf(la),1);
+   items.unshift({text:`with ${la.v.toLowerCase()} tattoos on both arms`});
+ }
+ const phrases=items.map(x=>x.text||`with a ${x.v.toLowerCase()} on her ${x.p}`);
+ if(phrases.length===1) return phrases[0];
+ return phrases[0]+phrases.slice(1).map((p,i)=>i===phrases.length-2?` and ${p.replace(/^with /,"")}`:`, ${p.replace(/^with /,"")}`).join("");
+ }
+ const tattoo=tattooPhrase();
  document.getElementById("prompt").value=
-`Photorealistic. Story orientation. ${val("character","Figure")} ${val("character","BodyShape")} ${val("character","Ethnicity")} woman with ${val("character","Hairstyle").toLowerCase()} ${val("character","HairColor").toLowerCase()} hair, ${val("character","EyeColor").toLowerCase()} eyes, a ${val("character","Expression").toLowerCase()} expression, ${skinDesc}, wearing ${parts.join(", ")}, at ${val("scene","Location")}. ${val("scene","Time")}, ${val("scene","Weather")}.`;
+`Photorealistic. Story orientation. ${val("character","Figure")} ${val("character","BodyShape")} ${val("character","Ethnicity")} woman with ${val("character","Hairstyle").toLowerCase()} ${val("character","HairColor").toLowerCase()} hair, ${val("character","EyeColor").toLowerCase()} eyes, a ${val("character","Expression").toLowerCase()} expression, ${skinDesc}${tattoo?`, ${tattoo}`:""}, wearing ${parts.join(", ")}, at ${val("scene","Location")}. ${val("scene","Time")}, ${val("scene","Weather")}.`;
 }
 const generateButton=document.getElementById("gen");
 const resetButton=document.getElementById("rand");

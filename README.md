@@ -1,9 +1,14 @@
-# Infinite Engine BUILD 014
+# Infinite Engine BUILD 015
 
-Foundation build with structured library and mobile-first UI.
+Build 015 adds independent tattoo placement controls.
 
-## BUILD 014
-- Added Skin Tone and Freckles as Character attributes.
-- Integrated both into prompt generation.
-- Added support in Randomize and Reset to Random.
-- Prompt omits freckles when set to None.
+## Added
+- Left Arm Tattoo
+- Right Arm Tattoo
+- Left Leg Tattoo
+- Right Leg Tattoo
+
+Each supports None, Small Tattoo, Half Sleeve, and Full Sleeve.
+All participate in prompt generation, Randomize, and Reset to Random.
+
+Forward compatible with planned Tattoo Styles in Build 016.

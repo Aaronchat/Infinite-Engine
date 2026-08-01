@@ -1,23 +1,24 @@
-# BUILD 014 Roadmap
+# BUILD 015 Roadmap
 
-Completed:
-- Skin Tone
-- Freckles
+Completed
+- Tattoo Placement
+  - Left Arm
+  - Right Arm
+  - Left Leg
+  - Right Leg
 
-Next Planned Build:
-BUILD 015 — Tattoo Placement
+Next Planned Build
 
-Planned additions:
-- Left Arm Tattoo
-- Right Arm Tattoo
-- Left Leg Tattoo
-- Right Leg Tattoo
+BUILD 016 — Tattoo Styles
 
-Each placement:
-- None
-- Half Sleeve
-- Full Sleeve
+Planned:
+- Traditional
+- Tribal
+- Japanese
+- Floral
+- Geometric
+- Blackwork
+- Watercolor
+- Realism
 
-Architecture:
-- Independent libraries for each category.
-- Reuse existing dropdown/randomization framework.
+Architecture keeps placement separate from style.
