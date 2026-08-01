@@ -1,7 +1,6 @@
-# BUILD 006
+# BUILD 007
 
-- Simplified engine.
-- Single base character.
-- Expanded everyday clothing.
-- Expanded everyday locations.
-- Removed random chaos from core generator.
+- Replaced fixed outfits with modular outfit generation.
+- Added separate tops, bottoms, dresses, footwear, outerwear, and accessories.
+- Dress/pajama outfits now generate independently.
+- Thousands of possible outfit combinations.
