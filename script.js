@@ -3,7 +3,9 @@ const library={
 character:{
 Ethnicity:["🎲 Random","Caucasian"],
 Figure:["🎲 Random","Busty","Very Busty","Extremely Busty","Hyper-Busty","Ultra-Busty","Buxom","Very Buxom","Extremely Buxom","Hyper-Buxom","Ultra-Buxom","Top-Heavy","Very Top-Heavy","Extremely Top-Heavy","Hyper Top-Heavy","Ultra Top-Heavy"],
-BodyShape:["🎲 Random","Slim","Athletic","Curvy","Voluptuous"]
+BodyShape:["🎲 Random","Slim","Athletic","Curvy","Voluptuous"],
+HairColor:["🎲 Random","Black","Brown","Blonde","Red","Auburn","Gray","White","Silver"],
+Hairstyle:["🎲 Random","Long straight hair","Long wavy hair","Curly hair","Bob cut","Pixie cut","Ponytail","Braided hair","Shoulder-length hair"]
 },
 outfit:{
 Top:["🎲 Random","White ribbed tank top","Black fitted tank top","Navy polo shirt","Scoop-neck tee","V-neck tee","Wrap top","Henley (top buttons undone)","White blouse"],
@@ -37,7 +39,7 @@ function gen(){
  let o=val("outfit","Outerwear"); if(o!=="None") parts.push(o);
  let a=val("outfit","Accessories"); if(a!=="None") parts.push(a);
  document.getElementById("prompt").value=
-`Photorealistic. Story orientation. ${val("character","Figure")} ${val("character","BodyShape")} ${val("character","Ethnicity")} Woman wearing ${parts.join(", ")}, at ${val("scene","Location")}. ${val("scene","Time")}, ${val("scene","Weather")}.`;
+`Photorealistic. Story orientation. ${val("character","Figure")} ${val("character","BodyShape")} ${val("character","HairColor")} ${val("character","Hairstyle")} ${val("character","Ethnicity")} Woman wearing ${parts.join(", ")}, at ${val("scene","Location")}. ${val("scene","Time")}, ${val("scene","Weather")}.`;
 }
 const generateButton=document.getElementById("gen");
 const resetButton=document.getElementById("rand");
