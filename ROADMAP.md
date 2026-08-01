@@ -1,11 +1,22 @@
-# BUILD 013 Roadmap
+# BUILD 014 Roadmap
 
-Goal: Expand Character with Face.
+Completed:
+- Skin Tone
+- Freckles
+
+Next Planned Build:
+BUILD 015 — Tattoo Placement
 
 Planned additions:
-- Eye Color
-- Facial Expression
-- Makeup
+- Left Arm Tattoo
+- Right Arm Tattoo
+- Left Leg Tattoo
+- Right Leg Tattoo
+
+Each placement:
+- None
+- Half Sleeve
+- Full Sleeve
 
 Architecture:
 - Independent libraries for each category.

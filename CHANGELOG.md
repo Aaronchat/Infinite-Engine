@@ -1,13 +1,10 @@
-# BUILD 013
-
-## Fixed
-- Fixed Generate button event binding.
-- Fixed Reset to Random event binding.
-- Fixed Copy Prompt event binding.
-- Replaced implicit global element references with explicit getElementById().
-- Added live prompt updates whenever a dropdown changes.
-
+# BUILD 014
 
 ## Added
-- Added Eye Color and Expression character attributes.
-- Integrated both into prompt generation, Randomize, and Reset to Random.
+- Added Skin Tone character attribute.
+- Added Freckles character attribute.
+- Integrated both into prompt generation.
+- Added both to Randomize and Reset to Random.
+
+## Verified
+- Existing Character, Outfit, and Scene behavior preserved.

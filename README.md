@@ -1,12 +1,9 @@
-# Infinite Engine BUILD 013
+# Infinite Engine BUILD 014
+
 Foundation build with structured library and mobile-first UI.
 
-
-
-
-## BUILD 013
-- Added Hair Color and Hairstyle as Character attributes.
-- Hair participates in prompt generation, randomization, and reset-to-random workflow.
-
-
-BUILD 013: Expanded Hair Color and Hairstyle libraries per roadmap.
+## BUILD 014
+- Added Skin Tone and Freckles as Character attributes.
+- Integrated both into prompt generation.
+- Added support in Randomize and Reset to Random.
+- Prompt omits freckles when set to None.
