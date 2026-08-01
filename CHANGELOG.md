@@ -1,7 +1,7 @@
-# BUILD 005
+# BUILD 006
 
-- Rewrote JavaScript using explicit document.getElementById() calls.
-- Removed reliance on browser global IDs.
-- Fixed Generate flow.
-- Fixed Prompt generation.
-- Fixed Copy Prompt button.
+- Simplified engine.
+- Single base character.
+- Expanded everyday clothing.
+- Expanded everyday locations.
+- Removed random chaos from core generator.
