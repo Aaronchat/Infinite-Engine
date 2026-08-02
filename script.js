@@ -71,7 +71,7 @@ function gen(){
  const tattoo=tattooPhrase();
  const makeup=val("character","Makeup");
  const makeupDesc=(makeup==="None")?"":`with ${makeup.toLowerCase()} makeup`;
-const accKeys=["Glasses","Earrings","Necklace","Bracelet","Watch","Rings","Anklet"];const acc=accKeys.map(k=>val("character",k)).filter(v=>v!=="None").map(v=>v.toLowerCase());const accDesc=acc.length?", "+acc.join(", "):"";
+const accessory=val("outfit","Accessories");const accDesc=accessory!=="None"?`, ${accessory.toLowerCase()}`:"";
  document.getElementById("prompt").value=
 `Photorealistic. Story orientation. ${val("character","Figure")} ${val("character","BodyShape")} ${val("character","Ethnicity")} woman with ${val("character","Hairstyle").toLowerCase()} ${val("character","HairColor").toLowerCase()} hair, ${val("character","EyeColor").toLowerCase()} eyes, a ${val("character","Expression").toLowerCase()} expression, ${skinDesc}${makeupDesc?`, ${makeupDesc}`:""}${tattoo?`, ${tattoo}`:""}, wearing ${parts.join(", ")}${accDesc}, at ${val("scene","Location")}. ${val("scene","Time")}, ${val("scene","Weather")}.`;
 }
