@@ -1,8 +1,0 @@
-body{font-family:system-ui,-apple-system,sans-serif;background:#202124;color:#eee;max-width:760px;margin:auto;padding:16px}
-h1{margin:0 0 16px} small{font-size:.6em}
-details{background:#2d2d2d;border-radius:12px;padding:10px;margin:12px 0}
-summary{font-weight:700;font-size:1.1rem}
-label{display:block;margin-top:10px;font-weight:600}
-select,button,textarea{width:100%;padding:10px;margin-top:6px;border-radius:8px;box-sizing:border-box}
-.actions{position:sticky;bottom:0;background:#202124;padding:10px 0;display:grid;gap:8px}
-textarea{min-height:120px}
