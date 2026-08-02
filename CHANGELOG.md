@@ -1,11 +1,9 @@
-# Changelog
+# BUILD 016
 
-## Build 017
-### Added
-- Visibility Engine specification.
-- Clothing coverage metadata concept.
-- Data-driven prompt visibility rules.
+## Added
+- Four Tattoo Placement attributes.
+- Natural language tattoo prompt generation.
+- Randomize and Reset to Random support.
 
-### Changed
-- Documentation updated for the Build 017 specification package.
-- Roadmap advanced to Build 018 — Accessories.
+## Verified
+- Character, Outfit, and Scene behavior preserved.
