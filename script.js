@@ -50,6 +50,32 @@ addSection("outfit",library.outfit);
 addSection("scene",library.scene);
 const pick=a=>a[1+Math.floor(Math.random()*(a.length-1))];
 const val=(group,key)=>{const s=document.getElementById(key).value;const arr=library[group][key];return s==="🎲 Random"?pick(arr):s;}
+
+// --- Rules Engine ---
+const legCoveringBottoms=["Blue Jeans","Skinny Jeans","Straight Jeans","Bootcut Jeans","Leggings","Yoga Pants","Cargo Pants","Leather Pants","High-Waisted Jeans","Boyfriend Jeans","Wide-Leg Jeans","Flare Jeans","Corduroy Pants","Utility Pants"];
+const armCoveringTops=["Long Sleeve Tee","Button-Up Shirt","Knit Sweater","Fitted Turtleneck","Quarter-Zip Top","Off-Shoulder Sweater","Mock Neck Top"];
+function setDisabled(group,key,disabled){
+ const sel=document.getElementById(group+"_"+key);
+ if(!sel) return;
+ sel.disabled=disabled;
+ sel.style.opacity=disabled?"0.5":"1";
+ if(disabled) sel.selectedIndex=0;
+}
+function applyRules(){
+ const bottom=val("outfit","Bottom");
+ const top=val("outfit","Top");
+ const one=val("outfit","OnePiece");
+ const swim=val("outfit","Swimwear");
+ const dress=val("outfit","Dresses");
+ const hideLegs=legCoveringBottoms.includes(bottom)||["Jumpsuit","Coveralls"].includes(one)||["Maxi Dress"].includes(dress)||["Wetsuit","Dive Suit"].includes(swim);
+ setDisabled("character","LeftLegTattoo",hideLegs);
+ setDisabled("character","RightLegTattoo",hideLegs);
+ const hideArms=armCoveringTops.includes(top)||["Coveralls"].includes(one)||["Wetsuit"].includes(swim);
+ setDisabled("character","LeftArmTattoo",hideArms);
+ setDisabled("character","RightArmTattoo",hideArms);
+}
+
+
 function gen(){
  let dress=val("outfit","Dresses"),swim=val("outfit","Swimwear"),one=val("outfit","OnePiece");
  let parts=[];
@@ -100,9 +126,10 @@ copyButton.addEventListener("click",()=>{
   navigator.clipboard.writeText(promptBox.value);
 });
 
-// Live preview: update whenever a selection changes.
+// Live preview
 document.querySelectorAll("select").forEach(s=>{
-  s.addEventListener("change",gen);
+  s.addEventListener("change",()=>{applyRules();gen();});
 });
+applyRules();
 
 gen();
