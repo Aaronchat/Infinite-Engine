@@ -1,3 +1,5 @@
+Build 018
+
 # BUILD 018 Roadmap
 
 Completed
@@ -21,8 +23,8 @@ Next Planned Build
 BUILD 019 — Camera
 
 Planned:
-- Glasses
-- Earrings
+- Accessories
+- Accessories
 - Necklace
 - Bracelet
 - Watch

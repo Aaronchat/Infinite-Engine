@@ -15,21 +15,14 @@ RightArmTattoo:["🎲 Random","None","Small Tattoo","Half Sleeve","Full Sleeve"]
 LeftLegTattoo:["🎲 Random","None","Small Tattoo","Half Sleeve","Full Sleeve"],
 RightLegTattoo:["🎲 Random","None","Small Tattoo","Half Sleeve","Full Sleeve"],
 TattooStyle:["🎲 Random","Traditional","Tribal","Japanese","Floral","Geometric","Blackwork","Watercolor","Realism"],
-Makeup:["🎲 Random","None","Natural","Soft Glam","Full Glam","Smokey Eye","Pin-Up","Gothic","Bridal"],
-Glasses:["🎲 Random","None","Reading Glasses","Rectangular Glasses","Round Glasses","Aviator Glasses","Cat-Eye Glasses"],
-Earrings:["🎲 Random","None","Stud Earrings","Hoop Earrings","Drop Earrings"],
-Necklace:["🎲 Random","None","Choker","Chain Necklace","Pendant Necklace","Pearl Necklace"],
-Bracelet:["🎲 Random","None","Leather Bracelet","Chain Bracelet","Beaded Bracelet","Bangle"],
-Watch:["🎲 Random","None","Analog Watch","Digital Watch","Smartwatch"],
-Rings:["🎲 Random","None","Wedding Band","Fashion Ring","Multiple Rings"],
-Anklet:["🎲 Random","None","Chain Anklet","Beaded Anklet"]
+Makeup:["🎲 Random","None","Natural","Soft Glam","Full Glam","Smokey Eye","Pin-Up","Gothic","Bridal"]
 },
 outfit:{
 Top:["🎲 Random","White ribbed tank top","Black fitted tank top","Navy polo shirt","Scoop-neck tee","V-neck tee","Wrap top","Henley (top buttons undone)","White blouse"],
 Bottom:["🎲 Random","Blue jeans","Khaki shorts","Light-wash cutoff denim shorts","Black leggings","Denim skirt"],
 Footwear:["🎲 Random","Cowboy boots","White sneakers","Loafers","Ankle boots"],
 Outerwear:["🎲 Random","None","Denim jacket","Leather jacket","Cardigan"],
-Accessories:["🎲 Random","None","Aviator sunglasses","Silver necklace","Brown leather tote"]
+Accessories:["🎲 Random","None","Aviator sunglasses","Silver necklace","Brown leather tote","Reading Glasses","Rectangular Glasses","Round Glasses","Aviator Glasses","Cat-Eye Glasses","Stud Earrings","Hoop Earrings","Drop Earrings","Choker","Chain Necklace","Pendant Necklace","Pearl Necklace","Leather Bracelet","Chain Bracelet","Beaded Bracelet","Bangle","Analog Watch","Digital Watch","Smartwatch","Wedding Band","Fashion Ring","Multiple Rings","Chain Anklet","Beaded Anklet"]
 },
 scene:{
 Location:["🎲 Random","Downtown sidewalk","Texas ranch","Coffee shop","Ancient castle"],
