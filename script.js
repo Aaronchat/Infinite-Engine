@@ -55,18 +55,18 @@ const val=(group,key)=>{const s=document.getElementById(key).value;const arr=lib
 const legCoveringBottoms=["Blue Jeans","Skinny Jeans","Straight Jeans","Bootcut Jeans","Leggings","Yoga Pants","Cargo Pants","Leather Pants","High-Waisted Jeans","Boyfriend Jeans","Wide-Leg Jeans","Flare Jeans","Corduroy Pants","Utility Pants"];
 const armCoveringTops=["Long Sleeve Tee","Button-Up Shirt","Knit Sweater","Fitted Turtleneck","Quarter-Zip Top","Off-Shoulder Sweater","Mock Neck Top"];
 function setDisabled(group,key,disabled){
- const sel=document.getElementById(group+"_"+key);
+ const sel=document.getElementById(key);
  if(!sel) return;
  sel.disabled=disabled;
  sel.style.opacity=disabled?"0.5":"1";
  if(disabled) sel.selectedIndex=0;
 }
 function applyRules(){
- const bottom=val("outfit","Bottom");
- const top=val("outfit","Top");
- const one=val("outfit","OnePiece");
- const swim=val("outfit","Swimwear");
- const dress=val("outfit","Dresses");
+ const bottom=document.getElementById("Bottom").value;
+ const top=document.getElementById("Top").value;
+ const one=document.getElementById("OnePiece").value;
+ const swim=document.getElementById("Swimwear").value;
+ const dress=document.getElementById("Dresses").value;
  const hideLegs=legCoveringBottoms.includes(bottom)||["Jumpsuit","Coveralls"].includes(one)||["Maxi Dress"].includes(dress)||["Wetsuit","Dive Suit"].includes(swim);
  setDisabled("character","LeftLegTattoo",hideLegs);
  setDisabled("character","RightLegTattoo",hideLegs);
@@ -79,7 +79,7 @@ function applyRules(){
 function gen(){
  let dress=val("outfit","Dresses"),swim=val("outfit","Swimwear"),one=val("outfit","OnePiece");
  let parts=[];
- if(dress!=="None") parts=[dress]; else if(swim!=="None") parts=[swim]; else if(one!=="None") parts=[one]; else parts=[val("outfit","Top"),val("outfit","Bottom")];
+ if(dress!=="None" && dress!=="🎲 Random") parts=[dress]; else if(swim!=="None" && swim!=="🎲 Random") parts=[swim]; else if(one!=="None" && one!=="🎲 Random") parts=[one]; else parts=[val("outfit","Top"),val("outfit","Bottom")];
  parts.push(val("outfit","Footwear"));
  let o=val("outfit","Outerwear"); if(o!=="None") parts.push(o);
  let a=val("outfit","Accessories"); if(a!=="None") parts.push(a);
