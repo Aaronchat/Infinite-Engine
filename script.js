@@ -20,6 +20,9 @@ Makeup:["🎲 Random","None","Natural","Soft Glam","Full Glam","Smokey Eye","Pin
 outfit:{
 Top:["🎲 Random","T-Shirt","Scoop-Neck Tee","V-Neck Tee","Henley","Long Sleeve Tee","Tank Top","Ribbed Tank Top","Crop Top","Cami Top","Halter Top","Wrap Top","Off-Shoulder Top","Bardot Top","Sweetheart Top","Peasant Blouse","Blouse","Button-Up Shirt","Tie-Front Shirt","Sports Bra","Bralette","Athletic Tank","Compression Top","Satin Blouse","Silk Blouse","Bodysuit","Corset Top","Knit Sweater","Fitted Turtleneck","Square-Neck Top","Ruched Top","Lace Blouse","Lace Cami","Racerback Tank","Knit Cami","Fitted Polo Shirt","Quarter-Zip Top","Baseball Tee","Ribbed Henley","Off-Shoulder Sweater","Mock Neck Top"],
 Bottom:["🎲 Random","Blue Jeans","Skinny Jeans","Straight Jeans","Bootcut Jeans","Leggings","Yoga Pants","Cargo Pants","Leather Pants","Denim Shorts","Athletic Shorts","Running Shorts","Biker Shorts","Khaki Shorts","Linen Shorts","Mini Skirt","Denim Skirt","Pencil Skirt","Pleated Skirt","Midi Skirt","Maxi Skirt","Cargo Shorts","High-Waisted Jeans","Boyfriend Jeans","Wide-Leg Jeans","Flare Jeans","Corduroy Pants","Utility Pants","A-Line Skirt","Wrap Skirt"],
+Dresses:["🎲 Random","None","Sundress","Mini Dress","Maxi Dress","Bodycon Dress","Evening Gown","Ball Gown"],
+Swimwear:["🎲 Random","None","Bikini","String Bikini","One-Piece Swimsuit","Dive Suit","Wetsuit"],
+OnePiece:["🎲 Random","None","Jumpsuit","Coveralls","Romper","Pink Bunny Costume"],
 Footwear:["🎲 Random","Sneakers","White Sneakers","Running Shoes","Skate Shoes","Ankle Boots","Chelsea Boots","Cowboy Boots","Combat Boots","Knee-High Boots","Ballet Flats","Loafers","Oxfords","Pumps","Stilettos","Sandals","Flip-Flops","Slides","Espadrilles","Hiking Boots","Trail Shoes"],
 Outerwear:["🎲 Random","None","Denim Jacket","Leather Jacket","Bomber Jacket","Blazer","Cardigan","Hoodie","Zip Hoodie","Windbreaker","Trench Coat","Peacoat","Parka","Moto Jacket","Cropped Denim Jacket","Cropped Leather Jacket","Tailored Blazer","Quilted Vest"],
 Accessories:["🎲 Random","None","Aviator sunglasses","Silver necklace","Brown leather tote","Reading Glasses","Rectangular Glasses","Round Glasses","Aviator Glasses","Cat-Eye Glasses","Stud Earrings","Hoop Earrings","Drop Earrings","Choker","Chain Necklace","Pendant Necklace","Pearl Necklace","Leather Bracelet","Chain Bracelet","Beaded Bracelet","Bangle","Analog Watch","Digital Watch","Smartwatch","Wedding Band","Fashion Ring","Multiple Rings","Chain Anklet","Beaded Anklet","Baseball Cap","Beanie","Cowboy Hat","Sun Hat","Scarf","Crossbody Bag","Backpack","Messenger Bag","Tote Bag","Clutch Purse"]
@@ -48,7 +51,10 @@ addSection("scene",library.scene);
 const pick=a=>a[1+Math.floor(Math.random()*(a.length-1))];
 const val=(group,key)=>{const s=document.getElementById(key).value;const arr=library[group][key];return s==="🎲 Random"?pick(arr):s;}
 function gen(){
- let parts=[val("outfit","Top"),val("outfit","Bottom"),val("outfit","Footwear")];
+ let dress=val("outfit","Dresses"),swim=val("outfit","Swimwear"),one=val("outfit","OnePiece");
+ let parts=[];
+ if(dress!=="None") parts=[dress]; else if(swim!=="None") parts=[swim]; else if(one!=="None") parts=[one]; else parts=[val("outfit","Top"),val("outfit","Bottom")];
+ parts.push(val("outfit","Footwear"));
  let o=val("outfit","Outerwear"); if(o!=="None") parts.push(o);
  let a=val("outfit","Accessories"); if(a!=="None") parts.push(a);
  const skin=val("character","SkinTone").toLowerCase();
