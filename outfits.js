@@ -1,1 +1,0 @@
-const OUTFITS=['Evening gown','Power armor','Cowgirl outfit','Spacesuit','Leather jacket'];
