@@ -69,11 +69,23 @@ function updateThemeOutfit(){
  const theme=document.getElementById("Theme");
  const outfit=document.getElementById("ThemeOutfit");
  if(!theme||!outfit)return;
+ const outfitLabel=outfit.previousElementSibling;
  outfit.innerHTML="";
  ["🎲 Random","None",...(themeOutfitMap[theme.value]||[])].forEach(x=>outfit.add(new Option(x,x)));
+ const show=theme.value!=="None"&&theme.value!=="🎲 Random";
+ outfit.style.display=show?"":"none";
+ if(outfitLabel) {
+   outfitLabel.style.display=show?"":"none";
+   outfitLabel.textContent=show?theme.value+" Outfit":"ThemeOutfit";
+ }
 }
 
-document.getElementById("Theme").addEventListener("change",updateThemeOutfit);updateThemeOutfit();
+const themeSelect=document.getElementById("Theme");
+const themeLabel=themeSelect.previousElementSibling;
+themeSelect.parentNode.insertBefore(document.getElementById("ThemeOutfit"), themeSelect.nextSibling);
+themeSelect.parentNode.insertBefore(document.getElementById("ThemeOutfit").previousElementSibling, document.getElementById("ThemeOutfit"));
+themeSelect.addEventListener("change",updateThemeOutfit);
+updateThemeOutfit();
 const pick=a=>a[1+Math.floor(Math.random()*(a.length-1))];
 const val=(group,key)=>{const s=document.getElementById(key).value;const arr=library[group][key];return s==="🎲 Random"?pick(arr):s;}
 
