@@ -109,7 +109,7 @@ function applyRules(){
  const bottom=document.getElementById("Bottom").value;
  const top=document.getElementById("Top").value;
  const one=document.getElementById("CompleteOutfit").value;
- const swim=document.getElementById("Swimwear").value;
+ const swim=[document.getElementById("BikiniTop").value,document.getElementById("BikiniBottom").value,document.getElementById("OnePiece").value,document.getElementById("SpecialtySwimwear").value].join(",");
  const dress=document.getElementById("Dresses").value;
  const hideLegs=legCoveringBottoms.includes(bottom)||["Jumpsuit","Coveralls"].includes(one)||["Maxi Dress"].includes(dress)||["Wetsuit","Dive Suit"].includes(swim);
  setDisabled("character","LeftLegTattoo",hideLegs);
@@ -123,12 +123,12 @@ function applyRules(){
 function gen(){
  const R={};
  const get=(g,k)=>{const id=g+"."+k;if(!(id in R)) R[id]=resolve(g,k); return R[id];};
- let dress=get("outfit","Dresses"),swim=get("outfit","Swimwear"),one=get("outfit","CompleteOutfit");
+ let dress=get("outfit","Dresses"),bt=get("outfit","BikiniTop"),bb=get("outfit","BikiniBottom"),op=get("outfit","OnePiece"),ss=get("outfit","SpecialtySwimwear"),one=get("outfit","CompleteOutfit");
  const themeOutfit=get("outfit","ThemeOutfit");
  let parts=[];
  if(themeOutfit!=="None" && themeOutfit!=="🎲 Random") parts=[themeOutfit];
  else if(dress!=="None" && dress!=="🎲 Random") parts=[dress];
- else if(swim!=="None" && swim!=="🎲 Random") parts=[swim];
+ else if([bt,bb,op,ss].some(x=>x!=="None"&&x!=="🎲 Random")){parts=[bt,bb,op,ss].filter(x=>x!=="None"&&x!=="🎲 Random");}
  else if(one!=="None" && one!=="🎲 Random") parts=[one];
  else {
    const top=get("outfit","Top"), bottom=get("outfit","Bottom");
