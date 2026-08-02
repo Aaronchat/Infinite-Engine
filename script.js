@@ -18,10 +18,10 @@ TattooStyle:["🎲 Random","Traditional","Tribal","Japanese","Floral","Geometric
 Makeup:["🎲 Random","None","Natural","Soft Glam","Full Glam","Smokey Eye","Pin-Up","Gothic","Bridal"]
 },
 outfit:{
-Top:["🎲 Random","White ribbed tank top","Black fitted tank top","Navy polo shirt","Scoop-neck tee","V-neck tee","Wrap top","Henley (top buttons undone)","White blouse"],
-Bottom:["🎲 Random","Blue jeans","Khaki shorts","Light-wash cutoff denim shorts","Black leggings","Denim skirt"],
-Footwear:["🎲 Random","Cowboy boots","White sneakers","Loafers","Ankle boots"],
-Outerwear:["🎲 Random","None","Denim jacket","Leather jacket","Cardigan"],
+Top:["🎲 Random","T-Shirt","Scoop-Neck Tee","V-Neck Tee","Henley","Long Sleeve Tee","Tank Top","Ribbed Tank Top","Crop Top","Cami Top","Halter Top","Wrap Top","Off-Shoulder Top","Bardot Top","Sweetheart Top","Peasant Blouse","Blouse","Button-Up Shirt","Tie-Front Shirt","Sports Bra","Bralette","Athletic Tank","Compression Top","Satin Blouse","Silk Blouse","Bodysuit","Corset Top","Knit Sweater"],
+Bottom:["🎲 Random","Blue Jeans","Skinny Jeans","Straight Jeans","Bootcut Jeans","Leggings","Yoga Pants","Cargo Pants","Leather Pants","Denim Shorts","Athletic Shorts","Running Shorts","Biker Shorts","Khaki Shorts","Linen Shorts","Mini Skirt","Denim Skirt","Pencil Skirt","Pleated Skirt","Midi Skirt","Maxi Skirt"],
+Footwear:["🎲 Random","Sneakers","White Sneakers","Running Shoes","Skate Shoes","Ankle Boots","Chelsea Boots","Cowboy Boots","Combat Boots","Knee-High Boots","Ballet Flats","Loafers","Oxfords","Pumps","Stilettos","Sandals","Flip-Flops","Slides","Espadrilles","Hiking Boots","Trail Shoes"],
+Outerwear:["🎲 Random","None","Denim Jacket","Leather Jacket","Bomber Jacket","Blazer","Cardigan","Hoodie","Zip Hoodie","Windbreaker","Trench Coat","Peacoat","Parka"],
 Accessories:["🎲 Random","None","Aviator sunglasses","Silver necklace","Brown leather tote","Reading Glasses","Rectangular Glasses","Round Glasses","Aviator Glasses","Cat-Eye Glasses","Stud Earrings","Hoop Earrings","Drop Earrings","Choker","Chain Necklace","Pendant Necklace","Pearl Necklace","Leather Bracelet","Chain Bracelet","Beaded Bracelet","Bangle","Analog Watch","Digital Watch","Smartwatch","Wedding Band","Fashion Ring","Multiple Rings","Chain Anklet","Beaded Anklet"]
 },
 scene:{
@@ -71,7 +71,7 @@ function gen(){
  const tattoo=tattooPhrase();
  const makeup=val("character","Makeup");
  const makeupDesc=(makeup==="None")?"":`with ${makeup.toLowerCase()} makeup`;
-const accessory=val("outfit","Accessories");const accDesc=accessory!=="None"?`, ${accessory.toLowerCase()}`:"";
+const accKeys=["Glasses","Earrings","Necklace","Bracelet","Watch","Rings","Anklet"];const acc=accKeys.map(k=>val("character",k)).filter(v=>v!=="None").map(v=>v.toLowerCase());const accDesc=acc.length?", "+acc.join(", "):"";
  document.getElementById("prompt").value=
 `Photorealistic. Story orientation. ${val("character","Figure")} ${val("character","BodyShape")} ${val("character","Ethnicity")} woman with ${val("character","Hairstyle").toLowerCase()} ${val("character","HairColor").toLowerCase()} hair, ${val("character","EyeColor").toLowerCase()} eyes, a ${val("character","Expression").toLowerCase()} expression, ${skinDesc}${makeupDesc?`, ${makeupDesc}`:""}${tattoo?`, ${tattoo}`:""}, wearing ${parts.join(", ")}${accDesc}, at ${val("scene","Location")}. ${val("scene","Time")}, ${val("scene","Weather")}.`;
 }

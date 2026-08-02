@@ -1,6 +1,6 @@
-Build 018
+Build 019
 
-# BUILD 018
+# BUILD 019
 
 ## Added
 - Makeup character attribute.
@@ -13,3 +13,6 @@ Build 018
 - Scene unchanged.
 
 - Added accessory system.
+
+## Build 019
+- Expanded Top, Bottom, Footwear, and Outerwear libraries.

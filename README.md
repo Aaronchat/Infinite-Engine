@@ -1,6 +1,6 @@
-# Infinite Engine BUILD 018
+# Infinite Engine BUILD 019
 
-Build 018 expands the Character system by adding **Makeup**.
+Build 019 expands the Character system by adding **Makeup**.
 
 ## Added
 - Makeup attribute

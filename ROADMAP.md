@@ -1,6 +1,6 @@
-Build 018
+Build 020
 
-# BUILD 018 Roadmap
+# BUILD 019 Roadmap
 
 Completed
 - Makeup
@@ -34,3 +34,5 @@ Planned:
 Architecture should continue using the same modular category pattern established for Character attributes so additional accessory categories can be added without major refactoring.
 
 Next: Camera.
+
+Next: Build 020 - Camera controls.
