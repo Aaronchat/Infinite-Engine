@@ -82,8 +82,9 @@ function updateThemeOutfit(){
 
 const themeSelect=document.getElementById("Theme");
 const themeLabel=themeSelect.previousElementSibling;
-themeSelect.parentNode.insertBefore(document.getElementById("ThemeOutfit"), themeSelect.nextSibling);
-themeSelect.parentNode.insertBefore(document.getElementById("ThemeOutfit").previousElementSibling, document.getElementById("ThemeOutfit"));
+const outfitSelect=document.getElementById("ThemeOutfit");
+const outfitLabel=outfitSelect.previousElementSibling;
+themeSelect.after(outfitLabel,outfitSelect);
 themeSelect.addEventListener("change",updateThemeOutfit);
 updateThemeOutfit();
 const pick=a=>a[1+Math.floor(Math.random()*(a.length-1))];
