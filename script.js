@@ -18,8 +18,8 @@ TattooStyle:["🎲 Random","Traditional","Tribal","Japanese","Floral","Geometric
 Makeup:["🎲 Random","None","Natural","Soft Glam","Full Glam","Smokey Eye","Pin-Up","Gothic","Bridal"]
 },
 outfit:{
-Top:["🎲 Random","T-Shirt","Scoop-Neck Tee","V-Neck Tee","Henley","Long Sleeve Tee","Tank Top","Ribbed Tank Top","Crop Top","Cami Top","Halter Top","Wrap Top","Off-Shoulder Top","Bardot Top","Sweetheart Top","Peasant Blouse","Blouse","Button-Up Shirt","Tie-Front Shirt","Sports Bra","Bralette","Athletic Tank","Compression Top","Satin Blouse","Silk Blouse","Bodysuit","Corset Top","Knit Sweater","Fitted Turtleneck","Square-Neck Top","Ruched Top","Lace Blouse","Lace Cami","Racerback Tank","Knit Cami","Fitted Polo Shirt","Quarter-Zip Top","Baseball Tee","Ribbed Henley","Off-Shoulder Sweater","Mock Neck Top"],
-Bottom:["🎲 Random","Blue Jeans","Skinny Jeans","Straight Jeans","Bootcut Jeans","Leggings","Yoga Pants","Cargo Pants","Leather Pants","Denim Shorts","Athletic Shorts","Running Shorts","Biker Shorts","Khaki Shorts","Linen Shorts","Mini Skirt","Denim Skirt","Pencil Skirt","Pleated Skirt","Midi Skirt","Maxi Skirt","Cargo Shorts","High-Waisted Jeans","Boyfriend Jeans","Wide-Leg Jeans","Flare Jeans","Corduroy Pants","Utility Pants","A-Line Skirt","Wrap Skirt"],
+Top:["🎲 Random","None","T-Shirt","Scoop-Neck Tee","V-Neck Tee","Henley","Long Sleeve Tee","Tank Top","Ribbed Tank Top","Crop Top","Cami Top","Halter Top","Wrap Top","Off-Shoulder Top","Bardot Top","Sweetheart Top","Peasant Blouse","Blouse","Button-Up Shirt","Tie-Front Shirt","Sports Bra","Bralette","Athletic Tank","Compression Top","Satin Blouse","Silk Blouse","Bodysuit","Corset Top","Knit Sweater","Fitted Turtleneck","Square-Neck Top","Ruched Top","Lace Blouse","Lace Cami","Racerback Tank","Knit Cami","Fitted Polo Shirt","Quarter-Zip Top","Baseball Tee","Ribbed Henley","Off-Shoulder Sweater","Mock Neck Top"],
+Bottom:["🎲 Random","None","Blue Jeans","Skinny Jeans","Straight Jeans","Bootcut Jeans","Leggings","Yoga Pants","Cargo Pants","Leather Pants","Denim Shorts","Athletic Shorts","Running Shorts","Biker Shorts","Khaki Shorts","Linen Shorts","Mini Skirt","Denim Skirt","Pencil Skirt","Pleated Skirt","Midi Skirt","Maxi Skirt","Cargo Shorts","High-Waisted Jeans","Boyfriend Jeans","Wide-Leg Jeans","Flare Jeans","Corduroy Pants","Utility Pants","A-Line Skirt","Wrap Skirt"],
 Dresses:["🎲 Random","None","Sundress","Mini Dress","Maxi Dress","Bodycon Dress","Evening Gown","Ball Gown"],
 Swimwear:["🎲 Random","None","Bikini","String Bikini","Complete Outfit Swimsuit","Dive Suit","Wetsuit"],
 CompleteOutfit:["🎲 Random","None","Jumpsuit","Coveralls","Romper","Pink Bunny Costume","Full-Body Pink Bunny Suit"],
@@ -111,8 +111,17 @@ function gen(){
  const R={};
  const get=(g,k)=>{const id=g+"."+k;if(!(id in R)) R[id]=resolve(g,k); return R[id];};
  let dress=get("outfit","Dresses"),swim=get("outfit","Swimwear"),one=get("outfit","CompleteOutfit");
+ const themeOutfit=get("outfit","ThemeOutfit");
  let parts=[];
- if(dress!=="None" && dress!=="🎲 Random") parts=[dress]; else if(swim!=="None" && swim!=="🎲 Random") parts=[swim]; else if(one!=="None" && one!=="🎲 Random") parts=[one]; else parts=[get("outfit","Top"),get("outfit","Bottom")];
+ if(themeOutfit!=="None" && themeOutfit!=="🎲 Random") parts=[themeOutfit];
+ else if(dress!=="None" && dress!=="🎲 Random") parts=[dress];
+ else if(swim!=="None" && swim!=="🎲 Random") parts=[swim];
+ else if(one!=="None" && one!=="🎲 Random") parts=[one];
+ else {
+   const top=get("outfit","Top"), bottom=get("outfit","Bottom");
+   if(top!=="None") parts.push(top);
+   if(bottom!=="None") parts.push(bottom);
+ }
  parts.push(get("outfit","Footwear"));
  let o=get("outfit","Outerwear"); if(o!=="None") parts.push(o);
  let a=get("outfit","Accessories"); if(a!=="None") parts.push(a);
