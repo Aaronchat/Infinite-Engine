@@ -39,7 +39,10 @@ function addSection(id,obj){
   root.append(lab,sel);
  }
 }
-addSection("character",library.character);
+addSection("character",{Ethnicity:library.character.Ethnicity,SkinTone:library.character.SkinTone,Figure:library.character.Figure,BodyShape:library.character.BodyShape});
+addSection("hair",{HairColor:library.character.HairColor,Hairstyle:library.character.Hairstyle});
+addSection("face",{EyeColor:library.character.EyeColor,Expression:library.character.Expression,Makeup:library.character.Makeup});
+addSection("skin",{Freckles:library.character.Freckles,LeftArmTattoo:library.character.LeftArmTattoo,RightArmTattoo:library.character.RightArmTattoo,LeftLegTattoo:library.character.LeftLegTattoo,RightLegTattoo:library.character.RightLegTattoo,TattooStyle:library.character.TattooStyle});
 addSection("outfit",library.outfit);
 addSection("scene",library.scene);
 const pick=a=>a[1+Math.floor(Math.random()*(a.length-1))];
