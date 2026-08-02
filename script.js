@@ -21,8 +21,10 @@ outfit:{
 Top:["🎲 Random","T-Shirt","Scoop-Neck Tee","V-Neck Tee","Henley","Long Sleeve Tee","Tank Top","Ribbed Tank Top","Crop Top","Cami Top","Halter Top","Wrap Top","Off-Shoulder Top","Bardot Top","Sweetheart Top","Peasant Blouse","Blouse","Button-Up Shirt","Tie-Front Shirt","Sports Bra","Bralette","Athletic Tank","Compression Top","Satin Blouse","Silk Blouse","Bodysuit","Corset Top","Knit Sweater","Fitted Turtleneck","Square-Neck Top","Ruched Top","Lace Blouse","Lace Cami","Racerback Tank","Knit Cami","Fitted Polo Shirt","Quarter-Zip Top","Baseball Tee","Ribbed Henley","Off-Shoulder Sweater","Mock Neck Top"],
 Bottom:["🎲 Random","Blue Jeans","Skinny Jeans","Straight Jeans","Bootcut Jeans","Leggings","Yoga Pants","Cargo Pants","Leather Pants","Denim Shorts","Athletic Shorts","Running Shorts","Biker Shorts","Khaki Shorts","Linen Shorts","Mini Skirt","Denim Skirt","Pencil Skirt","Pleated Skirt","Midi Skirt","Maxi Skirt","Cargo Shorts","High-Waisted Jeans","Boyfriend Jeans","Wide-Leg Jeans","Flare Jeans","Corduroy Pants","Utility Pants","A-Line Skirt","Wrap Skirt"],
 Dresses:["🎲 Random","None","Sundress","Mini Dress","Maxi Dress","Bodycon Dress","Evening Gown","Ball Gown"],
-Swimwear:["🎲 Random","None","Bikini","String Bikini","One-Piece Swimsuit","Dive Suit","Wetsuit"],
-OnePiece:["🎲 Random","None","Jumpsuit","Coveralls","Romper","Pink Bunny Costume"],
+Swimwear:["🎲 Random","None","Bikini","String Bikini","Complete Outfit Swimsuit","Dive Suit","Wetsuit"],
+CompleteOutfit:["🎲 Random","None","Jumpsuit","Coveralls","Romper","Pink Bunny Costume","Full-Body Pink Bunny Suit"],
+Theme:["🎲 Random","None","Fantasy","Sci-Fi","Historical","Occupations","Athletic","Costumes","Cultural"],
+ThemeOutfit:["🎲 Random","None"],
 Footwear:["🎲 Random","Sneakers","White Sneakers","Running Shoes","Skate Shoes","Ankle Boots","Chelsea Boots","Cowboy Boots","Combat Boots","Knee-High Boots","Ballet Flats","Loafers","Oxfords","Pumps","Stilettos","Sandals","Flip-Flops","Slides","Espadrilles","Hiking Boots","Trail Shoes"],
 Outerwear:["🎲 Random","None","Denim Jacket","Leather Jacket","Bomber Jacket","Blazer","Cardigan","Hoodie","Zip Hoodie","Windbreaker","Trench Coat","Peacoat","Parka","Moto Jacket","Cropped Denim Jacket","Cropped Leather Jacket","Tailored Blazer","Quilted Vest"],
 Accessories:["🎲 Random","None","Aviator sunglasses","Silver necklace","Brown leather tote","Reading Glasses","Rectangular Glasses","Round Glasses","Aviator Glasses","Cat-Eye Glasses","Stud Earrings","Hoop Earrings","Drop Earrings","Choker","Chain Necklace","Pendant Necklace","Pearl Necklace","Leather Bracelet","Chain Bracelet","Beaded Bracelet","Bangle","Analog Watch","Digital Watch","Smartwatch","Wedding Band","Fashion Ring","Multiple Rings","Chain Anklet","Beaded Anklet","Baseball Cap","Beanie","Cowboy Hat","Sun Hat","Scarf","Crossbody Bag","Backpack","Messenger Bag","Tote Bag","Clutch Purse"]
@@ -75,7 +77,7 @@ function setDisabled(group,key,disabled){
 function applyRules(){
  const bottom=document.getElementById("Bottom").value;
  const top=document.getElementById("Top").value;
- const one=document.getElementById("OnePiece").value;
+ const one=document.getElementById("CompleteOutfit").value;
  const swim=document.getElementById("Swimwear").value;
  const dress=document.getElementById("Dresses").value;
  const hideLegs=legCoveringBottoms.includes(bottom)||["Jumpsuit","Coveralls"].includes(one)||["Maxi Dress"].includes(dress)||["Wetsuit","Dive Suit"].includes(swim);
@@ -90,7 +92,7 @@ function applyRules(){
 function gen(){
  const R={};
  const get=(g,k)=>{const id=g+"."+k;if(!(id in R)) R[id]=resolve(g,k); return R[id];};
- let dress=get("outfit","Dresses"),swim=get("outfit","Swimwear"),one=get("outfit","OnePiece");
+ let dress=get("outfit","Dresses"),swim=get("outfit","Swimwear"),one=get("outfit","CompleteOutfit");
  let parts=[];
  if(dress!=="None" && dress!=="🎲 Random") parts=[dress]; else if(swim!=="None" && swim!=="🎲 Random") parts=[swim]; else if(one!=="None" && one!=="🎲 Random") parts=[one]; else parts=[get("outfit","Top"),get("outfit","Bottom")];
  parts.push(get("outfit","Footwear"));
