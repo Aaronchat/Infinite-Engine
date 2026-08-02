@@ -1,7 +1,7 @@
 # BUILD 017 Roadmap
 
 Completed
-- Tattoo Placement
+- Makeup
   - Left Arm
   - Right Arm
   - Left Leg
@@ -18,7 +18,7 @@ Completed
 
 Next Planned Build
 
-BUILD 017 — Accessories
+BUILD 018 — Accessories
 
 Planned:
 - Glasses
@@ -27,6 +27,6 @@ Planned:
 - Bracelet
 - Watch
 - Rings
-- Hat
+- Anklet
 
 Architecture should continue using the same modular category pattern established for Character attributes so additional accessory categories can be added without major refactoring.

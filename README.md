@@ -1,14 +1,14 @@
-# Infinite Engine BUILD 016
+# Infinite Engine BUILD 017
 
-Build 016 adds independent tattoo placement controls.
+Build 017 expands the Character system by adding **Makeup**.
 
 ## Added
-- Left Arm Tattoo
-- Right Arm Tattoo
-- Left Leg Tattoo
-- Right Leg Tattoo
+- Makeup attribute
+- Options: None, Natural, Soft Glam, Full Glam, Smokey Eye, Pin-Up, Gothic, Bridal
+- Natural prompt generation (omits makeup when set to None)
+- Randomize support
+- Reset to Random support
 
-Each supports None, Small Tattoo, Half Sleeve, and Full Sleeve.
-All participate in prompt generation, Randomize, and Reset to Random.
+Existing Character, Outfit, and Scene systems remain unchanged.
 
-Forward compatible with planned Tattoo Styles in Build 016.
+Next Planned Build: BUILD 018 — Accessories.
