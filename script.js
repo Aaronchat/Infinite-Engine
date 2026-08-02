@@ -27,6 +27,11 @@ Footwear:["🎲 Random","Sneakers","White Sneakers","Running Shoes","Skate Shoes
 Outerwear:["🎲 Random","None","Denim Jacket","Leather Jacket","Bomber Jacket","Blazer","Cardigan","Hoodie","Zip Hoodie","Windbreaker","Trench Coat","Peacoat","Parka","Moto Jacket","Cropped Denim Jacket","Cropped Leather Jacket","Tailored Blazer","Quilted Vest"],
 Accessories:["🎲 Random","None","Aviator sunglasses","Silver necklace","Brown leather tote","Reading Glasses","Rectangular Glasses","Round Glasses","Aviator Glasses","Cat-Eye Glasses","Stud Earrings","Hoop Earrings","Drop Earrings","Choker","Chain Necklace","Pendant Necklace","Pearl Necklace","Leather Bracelet","Chain Bracelet","Beaded Bracelet","Bangle","Analog Watch","Digital Watch","Smartwatch","Wedding Band","Fashion Ring","Multiple Rings","Chain Anklet","Beaded Anklet","Baseball Cap","Beanie","Cowboy Hat","Sun Hat","Scarf","Crossbody Bag","Backpack","Messenger Bag","Tote Bag","Clutch Purse"]
 },
+camera:{
+Camera:["🎲 Random","Canon EOS R5","Sony A7R V","Nikon Z9"],
+Lens:["🎲 Random","35mm Documentary","50mm Standard","85mm Portrait"],
+Framing:["🎲 Random","Head Shot","Three-Quarter Body","Full Body"],
+},
 scene:{
 Location:["🎲 Random","Downtown sidewalk","Texas ranch","Coffee shop","Ancient castle","Beach","Forest","Mountain Trail","Lakeside","Waterfall","Library","Bookstore","Museum","Art Gallery","Luxury Hotel Lobby","Japanese Shrine","Medieval Tavern","Cyberpunk City","Abandoned Factory","Snowy Village","Desert Highway","Flower Field","Botanical Garden","European Street","Boardwalk","Lighthouse"],
 Weather:["🎲 Random","Sunny","Cloudy","Golden hour","Light rain","Heavy Rain","Fog","Mist","Thunderstorm","Snow","Blizzard","Windy","Overcast"],
@@ -47,6 +52,7 @@ addSection("hair",{HairColor:library.character.HairColor,Hairstyle:library.chara
 addSection("face",{EyeColor:library.character.EyeColor,Expression:library.character.Expression,Makeup:library.character.Makeup});
 addSection("skin",{Freckles:library.character.Freckles,LeftArmTattoo:library.character.LeftArmTattoo,RightArmTattoo:library.character.RightArmTattoo,LeftLegTattoo:library.character.LeftLegTattoo,RightLegTattoo:library.character.RightLegTattoo,TattooStyle:library.character.TattooStyle});
 addSection("outfit",library.outfit);
+addSection("camera",library.camera);
 addSection("scene",library.scene);
 const pick=a=>a[1+Math.floor(Math.random()*(a.length-1))];
 const val=(group,key)=>{const s=document.getElementById(key).value;const arr=library[group][key];return s==="🎲 Random"?pick(arr):s;}
@@ -121,7 +127,7 @@ function gen(){
  const makeupDesc=(makeup==="None")?"":`with ${makeup.toLowerCase()} makeup`;
 const accessory=get("outfit","Accessories");const accDesc=accessory!=="None"&&accessory!=="🎲 Random"?`, ${accessory.toLowerCase()}`:"";
  document.getElementById("prompt").value=
-`Photorealistic. Story orientation. ${get("character","Figure")} ${get("character","BodyShape")} ${get("character","Ethnicity")} woman with ${get("character","Hairstyle").toLowerCase()} ${get("character","HairColor").toLowerCase()} hair, ${get("character","EyeColor").toLowerCase()} eyes, a ${get("character","Expression").toLowerCase()} expression, ${skinDesc}${makeupDesc?`, ${makeupDesc}`:""}${tattoo?`, ${tattoo}`:""}, wearing ${parts.join(", ")}${accDesc}, at ${get("scene","Location")}. ${get("scene","Time")}, ${get("scene","Weather")}.`;
+`Photorealistic. Story orientation. ${get("character","Figure")} ${get("character","BodyShape")} ${get("character","Ethnicity")} woman with ${get("character","Hairstyle").toLowerCase()} ${get("character","HairColor").toLowerCase()} hair, ${get("character","EyeColor").toLowerCase()} eyes, a ${get("character","Expression").toLowerCase()} expression, ${skinDesc}${makeupDesc?`, ${makeupDesc}`:""}${tattoo?`, ${tattoo}`:""}, wearing ${parts.join(", ")}${accDesc}, at ${get("scene","Location")}. ${get("scene","Time")}, ${get("scene","Weather")}. Captured on a ${get("camera","Camera")}, ${get("camera","Lens").toLowerCase()}, ${get("camera","Framing").toLowerCase()}.`;
 }
 const generateButton=document.getElementById("gen");
 const resetButton=document.getElementById("rand");
