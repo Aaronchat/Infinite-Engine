@@ -51,6 +51,11 @@ addSection("scene",library.scene);
 const pick=a=>a[1+Math.floor(Math.random()*(a.length-1))];
 const val=(group,key)=>{const s=document.getElementById(key).value;const arr=library[group][key];return s==="🎲 Random"?pick(arr):s;}
 
+function resolve(group,key){
+ const s=document.getElementById(key).value;
+ return s==="🎲 Random"?pick(library[group][key]):s;
+}
+
 // --- Rules Engine ---
 const legCoveringBottoms=["Blue Jeans","Skinny Jeans","Straight Jeans","Bootcut Jeans","Leggings","Yoga Pants","Cargo Pants","Leather Pants","High-Waisted Jeans","Boyfriend Jeans","Wide-Leg Jeans","Flare Jeans","Corduroy Pants","Utility Pants"];
 const armCoveringTops=["Long Sleeve Tee","Button-Up Shirt","Knit Sweater","Fitted Turtleneck","Quarter-Zip Top","Off-Shoulder Sweater","Mock Neck Top"];
@@ -77,19 +82,21 @@ function applyRules(){
 
 
 function gen(){
- let dress=val("outfit","Dresses"),swim=val("outfit","Swimwear"),one=val("outfit","OnePiece");
+ const R={};
+ const get=(g,k)=>{const id=g+"."+k;if(!(id in R)) R[id]=resolve(g,k); return R[id];};
+ let dress=get("outfit","Dresses"),swim=get("outfit","Swimwear"),one=get("outfit","OnePiece");
  let parts=[];
- if(dress!=="None" && dress!=="🎲 Random") parts=[dress]; else if(swim!=="None" && swim!=="🎲 Random") parts=[swim]; else if(one!=="None" && one!=="🎲 Random") parts=[one]; else parts=[val("outfit","Top"),val("outfit","Bottom")];
- parts.push(val("outfit","Footwear"));
- let o=val("outfit","Outerwear"); if(o!=="None") parts.push(o);
- let a=val("outfit","Accessories"); if(a!=="None") parts.push(a);
- const skin=val("character","SkinTone").toLowerCase();
- const freckles=val("character","Freckles");
+ if(dress!=="None" && dress!=="🎲 Random") parts=[dress]; else if(swim!=="None" && swim!=="🎲 Random") parts=[swim]; else if(one!=="None" && one!=="🎲 Random") parts=[one]; else parts=[get("outfit","Top"),get("outfit","Bottom")];
+ parts.push(get("outfit","Footwear"));
+ let o=get("outfit","Outerwear"); if(o!=="None") parts.push(o);
+ let a=get("outfit","Accessories"); if(a!=="None") parts.push(a);
+ const skin=get("character","SkinTone").toLowerCase();
+ const freckles=get("character","Freckles");
  const skinDesc=freckles==="None"?`with ${skin} skin`:`with ${skin} skin and ${freckles.toLowerCase()} freckles`;
  function tattooPhrase(){
- const style=val("character","TattooStyle").toLowerCase();
+ const style=get("character","TattooStyle").toLowerCase();
  const map=[["LeftArmTattoo","left arm"],["RightArmTattoo","right arm"],["LeftLegTattoo","left leg"],["RightLegTattoo","right leg"]];
- const items=map.map(([k,p])=>({v:val("character",k),p})).filter(x=>x.v!=="None");
+ const items=map.map(([k,p])=>({v:get("character",k),p})).filter(x=>x.v!=="None");
  if(!items.length) return "";
  const fmt=(v,p)=>`with a ${style} ${v.toLowerCase()} tattoo on her ${p}`;
  const la=items.find(x=>x.p==="left arm"),ra=items.find(x=>x.p==="right arm");
@@ -103,12 +110,18 @@ function gen(){
  if(phrases.length===1) return phrases[0];
  return phrases[0]+phrases.slice(1).map((p,i)=>i===phrases.length-2?` and ${p.replace(/^with /,"")}`:`, ${p.replace(/^with /,"")}`).join("");
  }
+
+ const bottom=get("outfit","Bottom"),top=get("outfit","Top");
+ const hideLegs=legCoveringBottoms.includes(bottom)||["Jumpsuit","Coveralls"].includes(one)||dress==="Maxi Dress"||["Wetsuit","Dive Suit"].includes(swim);
+ const hideArms=armCoveringTops.includes(top)||one==="Coveralls"||swim==="Wetsuit";
+ if(hideLegs){R["character.LeftLegTattoo"]="None";R["character.RightLegTattoo"]="None";}
+ if(hideArms){R["character.LeftArmTattoo"]="None";R["character.RightArmTattoo"]="None";}
  const tattoo=tattooPhrase();
- const makeup=val("character","Makeup");
+ const makeup=get("character","Makeup");
  const makeupDesc=(makeup==="None")?"":`with ${makeup.toLowerCase()} makeup`;
-const accessory=val("outfit","Accessories");const accDesc=accessory!=="None"&&accessory!=="🎲 Random"?`, ${accessory.toLowerCase()}`:"";
+const accessory=get("outfit","Accessories");const accDesc=accessory!=="None"&&accessory!=="🎲 Random"?`, ${accessory.toLowerCase()}`:"";
  document.getElementById("prompt").value=
-`Photorealistic. Story orientation. ${val("character","Figure")} ${val("character","BodyShape")} ${val("character","Ethnicity")} woman with ${val("character","Hairstyle").toLowerCase()} ${val("character","HairColor").toLowerCase()} hair, ${val("character","EyeColor").toLowerCase()} eyes, a ${val("character","Expression").toLowerCase()} expression, ${skinDesc}${makeupDesc?`, ${makeupDesc}`:""}${tattoo?`, ${tattoo}`:""}, wearing ${parts.join(", ")}${accDesc}, at ${val("scene","Location")}. ${val("scene","Time")}, ${val("scene","Weather")}.`;
+`Photorealistic. Story orientation. ${get("character","Figure")} ${get("character","BodyShape")} ${get("character","Ethnicity")} woman with ${get("character","Hairstyle").toLowerCase()} ${get("character","HairColor").toLowerCase()} hair, ${get("character","EyeColor").toLowerCase()} eyes, a ${get("character","Expression").toLowerCase()} expression, ${skinDesc}${makeupDesc?`, ${makeupDesc}`:""}${tattoo?`, ${tattoo}`:""}, wearing ${parts.join(", ")}${accDesc}, at ${get("scene","Location")}. ${get("scene","Time")}, ${get("scene","Weather")}.`;
 }
 const generateButton=document.getElementById("gen");
 const resetButton=document.getElementById("rand");
