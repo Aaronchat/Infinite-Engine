@@ -1,4 +1,4 @@
-# BUILD 017
+# BUILD 018
 
 ## Added
 - Makeup character attribute.
@@ -9,3 +9,5 @@
 - Existing Character options preserved.
 - Outfit unchanged.
 - Scene unchanged.
+
+- Added accessory system.

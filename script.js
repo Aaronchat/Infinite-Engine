@@ -15,7 +15,14 @@ RightArmTattoo:["🎲 Random","None","Small Tattoo","Half Sleeve","Full Sleeve"]
 LeftLegTattoo:["🎲 Random","None","Small Tattoo","Half Sleeve","Full Sleeve"],
 RightLegTattoo:["🎲 Random","None","Small Tattoo","Half Sleeve","Full Sleeve"],
 TattooStyle:["🎲 Random","Traditional","Tribal","Japanese","Floral","Geometric","Blackwork","Watercolor","Realism"],
-Makeup:["🎲 Random","None","Natural","Soft Glam","Full Glam","Smokey Eye","Pin-Up","Gothic","Bridal"]
+Makeup:["🎲 Random","None","Natural","Soft Glam","Full Glam","Smokey Eye","Pin-Up","Gothic","Bridal"],
+Glasses:["🎲 Random","None","Reading Glasses","Rectangular Glasses","Round Glasses","Aviator Glasses","Cat-Eye Glasses"],
+Earrings:["🎲 Random","None","Stud Earrings","Hoop Earrings","Drop Earrings"],
+Necklace:["🎲 Random","None","Choker","Chain Necklace","Pendant Necklace","Pearl Necklace"],
+Bracelet:["🎲 Random","None","Leather Bracelet","Chain Bracelet","Beaded Bracelet","Bangle"],
+Watch:["🎲 Random","None","Analog Watch","Digital Watch","Smartwatch"],
+Rings:["🎲 Random","None","Wedding Band","Fashion Ring","Multiple Rings"],
+Anklet:["🎲 Random","None","Chain Anklet","Beaded Anklet"]
 },
 outfit:{
 Top:["🎲 Random","White ribbed tank top","Black fitted tank top","Navy polo shirt","Scoop-neck tee","V-neck tee","Wrap top","Henley (top buttons undone)","White blouse"],
@@ -71,8 +78,9 @@ function gen(){
  const tattoo=tattooPhrase();
  const makeup=val("character","Makeup");
  const makeupDesc=(makeup==="None")?"":`with ${makeup.toLowerCase()} makeup`;
+const accKeys=["Glasses","Earrings","Necklace","Bracelet","Watch","Rings","Anklet"];const acc=accKeys.map(k=>val("character",k)).filter(v=>v!=="None").map(v=>v.toLowerCase());const accDesc=acc.length?", "+acc.join(", "):"";
  document.getElementById("prompt").value=
-`Photorealistic. Story orientation. ${val("character","Figure")} ${val("character","BodyShape")} ${val("character","Ethnicity")} woman with ${val("character","Hairstyle").toLowerCase()} ${val("character","HairColor").toLowerCase()} hair, ${val("character","EyeColor").toLowerCase()} eyes, a ${val("character","Expression").toLowerCase()} expression, ${skinDesc}${makeupDesc?`, ${makeupDesc}`:""}${tattoo?`, ${tattoo}`:""}, wearing ${parts.join(", ")}, at ${val("scene","Location")}. ${val("scene","Time")}, ${val("scene","Weather")}.`;
+`Photorealistic. Story orientation. ${val("character","Figure")} ${val("character","BodyShape")} ${val("character","Ethnicity")} woman with ${val("character","Hairstyle").toLowerCase()} ${val("character","HairColor").toLowerCase()} hair, ${val("character","EyeColor").toLowerCase()} eyes, a ${val("character","Expression").toLowerCase()} expression, ${skinDesc}${makeupDesc?`, ${makeupDesc}`:""}${tattoo?`, ${tattoo}`:""}, wearing ${parts.join(", ")}${accDesc}, at ${val("scene","Location")}. ${val("scene","Time")}, ${val("scene","Weather")}.`;
 }
 const generateButton=document.getElementById("gen");
 const resetButton=document.getElementById("rand");

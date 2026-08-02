@@ -1,4 +1,4 @@
-# BUILD 017 Roadmap
+# BUILD 018 Roadmap
 
 Completed
 - Makeup
@@ -18,7 +18,7 @@ Completed
 
 Next Planned Build
 
-BUILD 018 — Accessories
+BUILD 019 — Camera
 
 Planned:
 - Glasses
@@ -30,3 +30,5 @@ Planned:
 - Anklet
 
 Architecture should continue using the same modular category pattern established for Character attributes so additional accessory categories can be added without major refactoring.
+
+Next: Camera.

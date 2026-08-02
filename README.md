@@ -1,6 +1,6 @@
-# Infinite Engine BUILD 017
+# Infinite Engine BUILD 018
 
-Build 017 expands the Character system by adding **Makeup**.
+Build 018 expands the Character system by adding **Makeup**.
 
 ## Added
 - Makeup attribute
@@ -11,4 +11,7 @@ Build 017 expands the Character system by adding **Makeup**.
 
 Existing Character, Outfit, and Scene systems remain unchanged.
 
-Next Planned Build: BUILD 018 — Accessories.
+Next Planned Build: BUILD 019 — Camera.
+
+
+Added accessory system.
