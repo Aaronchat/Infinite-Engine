@@ -56,6 +56,24 @@ addSection("skin",{Freckles:library.character.Freckles,LeftArmTattoo:library.cha
 addSection("outfit",library.outfit);
 addSection("camera",library.camera);
 addSection("scene",library.scene);
+
+const themeOutfitMap={
+"Sci-Fi":["Space Suit","Futuristic Bodysuit","Cyberpunk Jacket","Mech Pilot Suit","Tactical Exosuit","Galactic Officer Uniform"],
+"Historical":["Roman Toga","Greek Chiton","Medieval Peasant Dress","Noblewoman Gown","Renaissance Dress","Regency Dress","Roaring 20s Flapper","Victorian Mourning Dress","Western Saloon Dress"],
+"Athletic":["Tennis Outfit","Golf Outfit","Volleyball Uniform","Soccer Kit","Basketball Uniform","Swimsuit","Running Outfit","Cycling Kit","Gym Wear"],
+"Occupations":["Doctor","Nurse","Firefighter","Police Officer","Mechanic","Construction Worker","Chef","Flight Attendant","Scientist","Astronaut","Detective","Librarian","Teacher","Barista"],
+"Costumes":["Full-Body Pink Bunny Suit","Playboy Bunny","Cat Costume","Fox Costume","Cowgirl","Cow Costume","Maid Outfit","School Uniform","Cheerleader","Devil Costume","Angel Costume","Vampire","Zombie","Superhero","Supervillain","Clown","Ringmaster","Magician","Mime","Jester"],
+"Cultural":["Kimono","Yukata","Hanbok","Qipao","Saree","Dirndl","Lederhosen","Scottish Kilt","Mexican Charro Outfit"]
+};
+function updateThemeOutfit(){
+ const theme=document.getElementById("Theme");
+ const outfit=document.getElementById("ThemeOutfit");
+ if(!theme||!outfit)return;
+ outfit.innerHTML="";
+ ["🎲 Random","None",...(themeOutfitMap[theme.value]||[])].forEach(x=>outfit.add(new Option(x,x)));
+}
+
+document.getElementById("Theme").addEventListener("change",updateThemeOutfit);updateThemeOutfit();
 const pick=a=>a[1+Math.floor(Math.random()*(a.length-1))];
 const val=(group,key)=>{const s=document.getElementById(key).value;const arr=library[group][key];return s==="🎲 Random"?pick(arr):s;}
 
