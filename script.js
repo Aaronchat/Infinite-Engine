@@ -25,9 +25,9 @@ Outerwear:["🎲 Random","None","Denim Jacket","Leather Jacket","Bomber Jacket",
 Accessories:["🎲 Random","None","Aviator sunglasses","Silver necklace","Brown leather tote","Reading Glasses","Rectangular Glasses","Round Glasses","Aviator Glasses","Cat-Eye Glasses","Stud Earrings","Hoop Earrings","Drop Earrings","Choker","Chain Necklace","Pendant Necklace","Pearl Necklace","Leather Bracelet","Chain Bracelet","Beaded Bracelet","Bangle","Analog Watch","Digital Watch","Smartwatch","Wedding Band","Fashion Ring","Multiple Rings","Chain Anklet","Beaded Anklet"]
 },
 scene:{
-Location:["🎲 Random","Downtown sidewalk","Texas ranch","Coffee shop","Ancient castle"],
-Weather:["🎲 Random","Sunny","Cloudy","Golden hour","Light rain"],
-Time:["🎲 Random","Morning","Afternoon","Sunset","Night"]
+Location:["🎲 Random","Downtown sidewalk","Texas ranch","Coffee shop","Ancient castle","Beach","Forest trail","Mountain overlook","Lake shore","Waterfall","Bookstore","Library","Museum","Art gallery","Airport terminal","Train station","Japanese shrine","Medieval village","Cyberpunk street","Desert highway","Lighthouse","Flower field","Autumn park","Snowy cabin","Farm"],
+Weather:["🎲 Random","Sunny","Cloudy","Golden hour","Light rain","Heavy rain","Thunderstorm","Fog","Mist","Snow","Blizzard","Windy","Overcast"],
+Time:["🎲 Random","Morning","Afternoon","Sunset","Night","Sunrise","Blue hour","Midnight"]
 }
 };
 function addSection(id,obj){
