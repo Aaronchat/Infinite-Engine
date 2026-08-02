@@ -1,1 +1,0 @@
-const CHAOS=[{theme:'horror',text:'Werewolves emerge from the shadows'},{theme:'fantasy',text:'A dragon circles overhead'},{theme:'scifi',text:'An alien invasion begins'},{theme:'modern',text:'A flash mob surrounds the scene'}];
