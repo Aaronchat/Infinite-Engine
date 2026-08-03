@@ -1,4 +1,5 @@
 import { sceneData } from './locations.js';
+import { lightingData } from './lighting.js';
 
 const library={
 character:{
@@ -38,7 +39,7 @@ Camera:["🎲 Random","Canon EOS R5","Sony A7R V","Nikon Z9"],
 Lens:["🎲 Random","35mm Documentary","50mm Standard","85mm Portrait"],
 Framing:["🎲 Random","Head Shot","Three-Quarter Body","Full Body"],
 },
-scene:sceneData
+scene:{...sceneData,...lightingData}
 };
 function addSection(id,obj){
  const root=document.getElementById(id);
