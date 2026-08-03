@@ -1,1 +1,5 @@
-// Placeholder for future modularization
+import { buildPrompt } from "./promptBuilder.js";
+
+export function generatePrompt(){
+  return buildPrompt();
+}
