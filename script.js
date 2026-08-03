@@ -34,11 +34,7 @@ Footwear:["🎲 Random","Sneakers","White Sneakers","Running Shoes","Skate Shoes
 Outerwear:["🎲 Random","None","Denim Jacket","Leather Jacket","Bomber Jacket","Blazer","Cardigan","Hoodie","Zip Hoodie","Windbreaker","Trench Coat","Peacoat","Parka","Moto Jacket","Cropped Denim Jacket","Cropped Leather Jacket","Tailored Blazer","Quilted Vest"],
 Accessories:["🎲 Random","None","Aviator sunglasses","Silver necklace","Brown leather tote","Reading Glasses","Rectangular Glasses","Round Glasses","Aviator Glasses","Cat-Eye Glasses","Stud Earrings","Hoop Earrings","Drop Earrings","Choker","Chain Necklace","Pendant Necklace","Pearl Necklace","Leather Bracelet","Chain Bracelet","Beaded Bracelet","Bangle","Analog Watch","Digital Watch","Smartwatch","Wedding Band","Fashion Ring","Multiple Rings","Chain Anklet","Beaded Anklet","Baseball Cap","Beanie","Cowboy Hat","Sun Hat","Scarf","Crossbody Bag","Backpack","Messenger Bag","Tote Bag","Clutch Purse"]
 },
-camera:{
-Camera:["🎲 Random","Canon EOS R5","Sony A7R V","Nikon Z9"],
-Lens:["🎲 Random","35mm Documentary","50mm Standard","85mm Portrait"],
-Framing:["🎲 Random","Head Shot","Three-Quarter Body","Full Body"],
-},
+camera:cameraData,
 scene:{...sceneData,...lightingData}
 };
 function addSection(id,obj){
