@@ -1,3 +1,6 @@
+import { applyRules } from "./rules.js";
+import { generatePrompt } from "./generator.js";
+function gen(){document.getElementById("prompt").value=generatePrompt();}
 // UI module
 const generateButton=document.getElementById("gen");
 const resetButton=document.getElementById("rand");
@@ -8,7 +11,7 @@ generateButton.addEventListener("click",gen);
 
 resetButton.addEventListener("click",()=>{
   document.querySelectorAll("select").forEach(s=>s.selectedIndex=0);
-  gen();
+  document.getElementById("Theme")?.dispatchEvent(new Event("change"));
 });
 
 copyButton.addEventListener("click",()=>{

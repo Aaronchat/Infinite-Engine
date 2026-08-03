@@ -1,7 +1,10 @@
-function buildPrompt{
+import { resolve } from "./random.js";
+import { legCoveringBottoms, armCoveringTops } from "./rules.js";
+
+export function buildPrompt(){
  const R={};
  const get=(g,k)=>{const id=g+"."+k;if(!(id in R)) R[id]=resolve(g,k); return R[id];};
- let dress=get("outfit","Dresses"),bt=get("outfit","BikiniTop"),bb=get("outfit","BikiniBottom"),op=get("outfit","OnePiece"),ss=get("outfit","SpecialtySwimwear"),one=get("outfit","CompleteOutfit");
+ const dress=get("outfit","Dresses"),bt=get("outfit","BikiniTop"),bb=get("outfit","BikiniBottom"),op=get("outfit","OnePiece"),ss=get("outfit","SpecialtySwimwear"),one=get("outfit","CompleteOutfit");
  const themeOutfit=get("outfit","ThemeOutfit");
  let parts=[];
  if(themeOutfit!=="None" && themeOutfit!=="🎲 Random") parts=[themeOutfit];
@@ -38,14 +41,15 @@ function buildPrompt{
  }
 
  const bottom=get("outfit","Bottom"),top=get("outfit","Top");
- const hideLegs=legCoveringBottoms.includes(bottom)||["Jumpsuit","Coveralls"].includes(one)||dress==="Maxi Dress"||["Wetsuit","Dive Suit"].includes(swim);
- const hideArms=armCoveringTops.includes(top)||one==="Coveralls"||swim==="Wetsuit";
+ const swimItems=[bt,bb,op,ss];
+ const hideLegs=legCoveringBottoms.includes(bottom)||["Jumpsuit","Coveralls"].includes(one)||dress==="Maxi Dress"||swimItems.some(x=>["Wetsuit","Dive Suit"].includes(x));
+ const hideArms=armCoveringTops.includes(top)||one==="Coveralls"||swimItems.includes("Wetsuit");
  if(hideLegs){R["character.LeftLegTattoo"]="None";R["character.RightLegTattoo"]="None";}
  if(hideArms){R["character.LeftArmTattoo"]="None";R["character.RightArmTattoo"]="None";}
  const tattoo=tattooPhrase();
  const makeup=get("character","Makeup");
  const makeupDesc=(makeup==="None")?"":`with ${makeup.toLowerCase()} makeup`;
-const accessory=get("outfit","Accessories");const accDesc=accessory!=="None"&&accessory!=="🎲 Random"?`, ${accessory.toLowerCase()}`:"";
+ const accessory=get("outfit","Accessories");const accDesc=accessory!=="None"&&accessory!=="🎲 Random"?`, ${accessory.toLowerCase()}`:"";
  document.getElementById("prompt").value=
 `Photorealistic. Story orientation. ${get("character","Figure")} ${get("character","BodyShape")} ${get("character","Ethnicity")} woman with ${get("character","Hairstyle").toLowerCase()} ${get("character","HairColor").toLowerCase()} hair, ${get("character","EyeColor").toLowerCase()} eyes, a ${get("character","Expression").toLowerCase()} expression, ${skinDesc}${makeupDesc?`, ${makeupDesc}`:""}${tattoo?`, ${tattoo}`:""}, wearing ${parts.join(", ")}, at ${get("scene","Location")}. ${get("scene","Time")}, ${get("scene","Weather")}. Captured on a ${get("camera","Camera")}, ${get("camera","Lens").toLowerCase()}, ${get("camera","Framing").toLowerCase()}.`;
 }

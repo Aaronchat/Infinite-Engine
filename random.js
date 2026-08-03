@@ -8,7 +8,7 @@ export const val = (library, group, key) => {
   return s === "🎲 Random" ? pick(arr) : s;
 };
 
-export function resolve(library, group, key) {
-  const s = document.getElementById(key).value;
-  return s === "🎲 Random" ? pick(library[group][key]) : s;
+export function resolve(a,b,c){
+ if(arguments.length===2){return document.getElementById(b).value;}
+ const s=document.getElementById(c).value;return s==="🎲 Random"?pick(a[b][c]):s;
 }
