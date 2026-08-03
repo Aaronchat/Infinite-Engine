@@ -1,3 +1,4 @@
+import { sceneData } from './locations.js';
 
 const library={
 character:{
@@ -37,11 +38,7 @@ Camera:["🎲 Random","Canon EOS R5","Sony A7R V","Nikon Z9"],
 Lens:["🎲 Random","35mm Documentary","50mm Standard","85mm Portrait"],
 Framing:["🎲 Random","Head Shot","Three-Quarter Body","Full Body"],
 },
-scene:{
-Location:["🎲 Random","Downtown sidewalk","Texas ranch","Coffee shop","Ancient castle","Beach","Forest","Mountain Trail","Lakeside","Waterfall","Library","Bookstore","Museum","Art Gallery","Luxury Hotel Lobby","Japanese Shrine","Medieval Tavern","Cyberpunk City","Abandoned Factory","Snowy Village","Desert Highway","Flower Field","Botanical Garden","European Street","Boardwalk","Lighthouse"],
-Weather:["🎲 Random","Sunny","Cloudy","Golden hour","Light rain","Heavy Rain","Fog","Mist","Thunderstorm","Snow","Blizzard","Windy","Overcast"],
-Time:["🎲 Random","Morning","Afternoon","Sunset","Night","Sunrise","Blue Hour","Midnight"]
-}
+scene:sceneData
 };
 function addSection(id,obj){
  const root=document.getElementById(id);
