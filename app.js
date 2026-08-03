@@ -91,4 +91,9 @@ themeSelect.addEventListener("change",updateThemeOutfit);
 updateThemeOutfit();
 
 // UI initialization moved to logic/ui.js
-import("./ui.js").catch(console.error);
+import("./ui.js").catch(e => {
+    document.body.innerHTML =
+        "<pre style='color:red;white-space:pre-wrap'>" +
+        e.stack +
+        "</pre>";
+});
