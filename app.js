@@ -1,3 +1,7 @@
+import { pick, val, resolve } from "./random.js";
+import { applyRules } from "./rules.js";
+import { generatePrompt } from "./generator.js";
+
 
 const library={
 character:{
@@ -90,10 +94,3 @@ const outfitLabel=outfitSelect.previousElementSibling;
 themeSelect.after(outfitLabel,outfitSelect);
 themeSelect.addEventListener("change",updateThemeOutfit);
 updateThemeOutfit();
-import { pick, val, resolve } from "./random.js";
-
-import { applyRules } from "./rules.js";
-
-import { generatePrompt } from "./generator.js";
-
-// UI initialization moved to logic/ui.js
