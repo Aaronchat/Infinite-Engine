@@ -43,6 +43,9 @@ Weather:["🎲 Random","Sunny","Cloudy","Golden hour","Light rain","Heavy Rain",
 Time:["🎲 Random","Morning","Afternoon","Sunset","Night","Sunrise","Blue Hour","Midnight"]
 }
 };
+
+window.library = library;
+
 function addSection(id,obj){
  const root=document.getElementById(id);
  for(const [k,v] of Object.entries(obj)){
