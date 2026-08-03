@@ -84,18 +84,11 @@ function updateThemeOutfit(){
 }
 
 const themeSelect=document.getElementById("Theme");
-const themeLabel=themeSelect.previousElementSibling;
 const outfitSelect=document.getElementById("ThemeOutfit");
 const outfitLabel=outfitSelect.previousElementSibling;
 themeSelect.after(outfitLabel,outfitSelect);
 themeSelect.addEventListener("change",updateThemeOutfit);
 updateThemeOutfit();
-import { pick, val, resolve } from "./random.js";
-
-import { applyRules } from "./rules.js";
-
-import { generatePrompt } from "./generator.js";
 
 // UI initialization moved to logic/ui.js
-
 import("./ui.js").catch(console.error);
