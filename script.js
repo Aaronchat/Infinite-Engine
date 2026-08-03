@@ -1,3 +1,4 @@
+import { accessoriesData } from './accessories.js';
 import { sceneData } from './locations.js';
 import { lightingData } from './lighting.js';
 
@@ -32,30 +33,7 @@ Theme:["🎲 Random","None","Fantasy","Sci-Fi","Historical","Occupations","Athle
 ThemeOutfit:["🎲 Random","None"],
 Footwear:["🎲 Random","Sneakers","White Sneakers","Running Shoes","Skate Shoes","Ankle Boots","Chelsea Boots","Cowboy Boots","Combat Boots","Knee-High Boots","Ballet Flats","Loafers","Oxfords","Pumps","Stilettos","Sandals","Flip-Flops","Slides","Espadrilles","Hiking Boots","Trail Shoes"],
 Outerwear:["🎲 Random","None","Denim Jacket","Leather Jacket","Bomber Jacket","Blazer","Cardigan","Hoodie","Zip Hoodie","Windbreaker","Trench Coat","Peacoat","Parka","Moto Jacket","Cropped Denim Jacket","Cropped Leather Jacket","Tailored Blazer","Quilted Vest"],
-Accessories:["🎲 Random","None","Aviator sunglasses","Silver necklace","Brown leather tote","Reading Glasses","Rectangular Glasses","Round Glasses","Aviator Glasses","Cat-Eye Glasses","Stud Earrings","Hoop Earrings","Drop Earrings","Choker","Chain Necklace","Pendant Necklace","Pearl Necklace","Leather Bracelet","Chain Bracelet","Beaded Bracelet","Bangle","Analog Watch","Digital Watch","Smartwatch","Wedding Band","Fashion Ring","Multiple Rings","Chain Anklet","Beaded Anklet","Baseball Cap","Beanie","Cowboy Hat","Sun Hat","Scarf","Crossbody Bag","Backpack","Messenger Bag","Tote Bag","Clutch Purse"]
-},
-camera:cameraData,
-scene:{...sceneData,...lightingData}
-};
-function addSection(id,obj){
- const root=document.getElementById(id);
- for(const [k,v] of Object.entries(obj)){
-  const lab=document.createElement('label');lab.textContent=k;
-  const sel=document.createElement('select');sel.id=k;
-  v.forEach(x=>sel.add(new Option(x,x)));
-  root.append(lab,sel);
- }
-}
-addSection("character",{Ethnicity:library.character.Ethnicity,SkinTone:library.character.SkinTone,Figure:library.character.Figure,BodyShape:library.character.BodyShape});
-addSection("hair",{HairColor:library.character.HairColor,Hairstyle:library.character.Hairstyle});
-addSection("face",{EyeColor:library.character.EyeColor,Expression:library.character.Expression,Makeup:library.character.Makeup});
-addSection("skin",{Freckles:library.character.Freckles,LeftArmTattoo:library.character.LeftArmTattoo,RightArmTattoo:library.character.RightArmTattoo,LeftLegTattoo:library.character.LeftLegTattoo,RightLegTattoo:library.character.RightLegTattoo,TattooStyle:library.character.TattooStyle});
-addSection("outfit",library.outfit);
-addSection("camera",library.camera);
-addSection("scene",library.scene);
-
-const themeOutfitMap={
-"Sci-Fi":["Space Suit","Futuristic Bodysuit","Cyberpunk Jacket","Mech Pilot Suit","Tactical Exosuit","Galactic Officer Uniform"],
+Accessories:accessoriesData,
 "Historical":["Roman Toga","Greek Chiton","Medieval Peasant Dress","Noblewoman Gown","Renaissance Dress","Regency Dress","Roaring 20s Flapper","Victorian Mourning Dress","Western Saloon Dress"],
 "Athletic":["Tennis Outfit","Golf Outfit","Volleyball Uniform","Soccer Kit","Basketball Uniform","Swimsuit","Running Outfit","Cycling Kit","Gym Wear"],
 "Occupations":["Doctor","Nurse","Firefighter","Police Officer","Mechanic","Construction Worker","Chef","Flight Attendant","Scientist","Astronaut","Detective","Librarian","Teacher","Barista"],
