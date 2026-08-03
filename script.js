@@ -21,7 +21,7 @@ RightLegTattoo:["🎲 Random","None","Small Tattoo","Half Sleeve","Full Sleeve"]
 TattooStyle:["🎲 Random","Traditional","Tribal","Japanese","Floral","Geometric","Blackwork","Watercolor","Realism"],
 Makeup:["🎲 Random","None","Natural","Soft Glam","Full Glam","Smokey Eye","Pin-Up","Gothic","Bridal"]
 },
-outfit: clothingData;
+outfit: {...clothingData, ...swimwearData};
 function updateThemeOutfit(){
  const theme=document.getElementById("Theme");
  const outfit=document.getElementById("ThemeOutfit");
