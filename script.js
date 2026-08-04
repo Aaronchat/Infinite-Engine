@@ -54,11 +54,7 @@ function applyRules(){
  const swim=[document.getElementById("BikiniTop").value,document.getElementById("BikiniBottom").value,document.getElementById("OnePiece").value,document.getElementById("SpecialtySwimwear").value].join(",");
  const dress=document.getElementById("Dresses").value;
  const hideLegs=legCoveringBottoms.includes(bottom)||["Jumpsuit","Coveralls"].includes(one)||["Maxi Dress"].includes(dress)||["Wetsuit","Dive Suit"].includes(swim);
- setDisabled("character","LeftLegTattoo",hideLegs);
- setDisabled("character","RightLegTattoo",hideLegs);
  const hideArms=armCoveringTops.includes(top)||["Coveralls"].includes(one)||["Wetsuit"].includes(swim);
- setDisabled("character","LeftArmTattoo",hideArms);
- setDisabled("character","RightArmTattoo",hideArms);
 }
 
 
@@ -84,28 +80,6 @@ function gen(){
  const freckles=get("character","Freckles");
  const skinDesc=freckles==="None"?`with ${skin} skin`:`with ${skin} skin and ${freckles.toLowerCase()} freckles`;
  function tattooPhrase(){
- const style=get("character","TattooStyle").toLowerCase();
- const map=[["LeftArmTattoo","left arm"],["RightArmTattoo","right arm"],["LeftLegTattoo","left leg"],["RightLegTattoo","right leg"]];
- const items=map.map(([k,p])=>({v:get("character",k),p})).filter(x=>x.v!=="None");
- if(!items.length) return "";
- const fmt=(v,p)=>`with a ${style} ${v.toLowerCase()} tattoo on her ${p}`;
- const la=items.find(x=>x.p==="left arm"),ra=items.find(x=>x.p==="right arm");
- if(la&&ra&&la.v===ra.v&&(la.v==="Full Sleeve"||la.v==="Half Sleeve")){
-   const others=items.filter(x=>x!==la&&x!==ra).map(x=>fmt(x.v,x.p).replace(/^with /,""));
-   let base=`with ${style} ${la.v.toLowerCase()} tattoos on both arms`;
-   if(others.length) base+=" and "+others.join(" and ");
-   return base;
- }
- const phrases=items.map(x=>fmt(x.v,x.p));
- if(phrases.length===1) return phrases[0];
- return phrases[0]+phrases.slice(1).map((p,i)=>i===phrases.length-2?` and ${p.replace(/^with /,"")}`:`, ${p.replace(/^with /,"")}`).join("");
- }
-
- const bottom=get("outfit","Bottom"),top=get("outfit","Top");
- const hideLegs=legCoveringBottoms.includes(bottom)||["Jumpsuit","Coveralls"].includes(one)||dress==="Maxi Dress"||["Wetsuit","Dive Suit"].includes(swim);
- const hideArms=armCoveringTops.includes(top)||one==="Coveralls"||swim==="Wetsuit";
- if(hideLegs){R["character.LeftLegTattoo"]="None";R["character.RightLegTattoo"]="None";}
- if(hideArms){R["character.LeftArmTattoo"]="None";R["character.RightArmTattoo"]="None";}
  const tattoo=tattooPhrase();
  const makeup=get("character","Makeup");
  const makeupDesc=(makeup==="None")?"":`with ${makeup.toLowerCase()} makeup`;

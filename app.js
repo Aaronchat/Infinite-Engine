@@ -10,11 +10,6 @@ EyeColor:["🎲 Random","Brown","Dark Brown","Hazel","Amber","Green","Blue","Gra
 Expression:["🎲 Random","Neutral","Calm","Happy","Smiling","Laughing","Playful","Confident","Serious","Determined","Stoic","Smirking","Flirty","Angry","Fierce","Sad","Surprised"],
 SkinTone:["🎲 Random","Pale","Fair","Light","Medium","Olive","Tan"],
 Freckles:["🎲 Random","None","Light","Moderate","Heavy"],
-LeftArmTattoo:["🎲 Random","None","Small Tattoo","Half Sleeve","Full Sleeve"],
-RightArmTattoo:["🎲 Random","None","Small Tattoo","Half Sleeve","Full Sleeve"],
-LeftLegTattoo:["🎲 Random","None","Small Tattoo","Half Sleeve","Full Sleeve"],
-RightLegTattoo:["🎲 Random","None","Small Tattoo","Half Sleeve","Full Sleeve"],
-TattooStyle:["🎲 Random","Traditional","Tribal","Japanese","Floral","Geometric","Blackwork","Watercolor","Realism"],
 Makeup:["🎲 Random","None","Natural","Soft Glam","Full Glam","Smokey Eye","Pin-Up","Gothic","Bridal"]
 },
 outfit:{
@@ -58,7 +53,7 @@ function addSection(id,obj){
 addSection("character",{Ethnicity:library.character.Ethnicity,SkinTone:library.character.SkinTone,Figure:library.character.Figure,BodyShape:library.character.BodyShape});
 addSection("hair",{HairColor:library.character.HairColor,Hairstyle:library.character.Hairstyle});
 addSection("face",{EyeColor:library.character.EyeColor,Expression:library.character.Expression,Makeup:library.character.Makeup});
-addSection("skin",{Freckles:library.character.Freckles,LeftArmTattoo:library.character.LeftArmTattoo,RightArmTattoo:library.character.RightArmTattoo,LeftLegTattoo:library.character.LeftLegTattoo,RightLegTattoo:library.character.RightLegTattoo,TattooStyle:library.character.TattooStyle});
+addSection("skin",{Freckles:library.character.Freckles});
 addSection("outfit",library.outfit);
 addSection("camera",library.camera);
 addSection("scene",library.scene);

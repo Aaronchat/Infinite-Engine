@@ -15,7 +15,7 @@ function addSection(id,obj){
 addSection("character",{Ethnicity:library.character.Ethnicity,SkinTone:library.character.SkinTone,Figure:library.character.Figure,BodyShape:library.character.BodyShape});
 addSection("hair",{HairColor:library.character.HairColor,Hairstyle:library.character.Hairstyle});
 addSection("face",{EyeColor:library.character.EyeColor,Expression:library.character.Expression,Makeup:library.character.Makeup});
-addSection("skin",{Freckles:library.character.Freckles,LeftArmTattoo:library.character.LeftArmTattoo,RightArmTattoo:library.character.RightArmTattoo,LeftLegTattoo:library.character.LeftLegTattoo,RightLegTattoo:library.character.RightLegTattoo,TattooStyle:library.character.TattooStyle});
+addSection("skin",{Freckles:library.character.Freckles});
 addSection("outfit",library.outfit);
 addSection("camera",library.camera);
 addSection("scene",library.scene);

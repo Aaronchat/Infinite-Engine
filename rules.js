@@ -21,9 +21,5 @@ export function applyRules(){
 ];
  const dress=document.getElementById("Dresses").value;
  const hideLegs=legCoveringBottoms.includes(bottom)||["Jumpsuit","Coveralls"].includes(one)||dress==="Maxi Dress"||swimItems.some(x=>["Wetsuit","Dive Suit"].includes(x));
- setDisabled("character","LeftLegTattoo",hideLegs);
- setDisabled("character","RightLegTattoo",hideLegs);
  const hideArms=armCoveringTops.includes(top)||one==="Coveralls"||swimItems.includes("Wetsuit");
- setDisabled("character","LeftArmTattoo",hideArms);
- setDisabled("character","RightArmTattoo",hideArms);
 }

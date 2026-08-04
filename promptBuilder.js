@@ -23,29 +23,6 @@ export function buildPrompt(){
  const freckles=get("character","Freckles");
  const skinDesc=freckles==="None"?`with ${skin} skin`:`with ${skin} skin and ${freckles.toLowerCase()} freckles`;
  function tattooPhrase(){
- const style=get("character","TattooStyle").toLowerCase();
- const map=[["LeftArmTattoo","left arm"],["RightArmTattoo","right arm"],["LeftLegTattoo","left leg"],["RightLegTattoo","right leg"]];
- const items=map.map(([k,p])=>({v:get("character",k),p})).filter(x=>x.v!=="None");
- if(!items.length) return "";
- const fmt=(v,p)=>`with a ${style} ${v.toLowerCase()} tattoo on her ${p}`;
- const la=items.find(x=>x.p==="left arm"),ra=items.find(x=>x.p==="right arm");
- if(la&&ra&&la.v===ra.v&&(la.v==="Full Sleeve"||la.v==="Half Sleeve")){
-   const others=items.filter(x=>x!==la&&x!==ra).map(x=>fmt(x.v,x.p).replace(/^with /,""));
-   let base=`with ${style} ${la.v.toLowerCase()} tattoos on both arms`;
-   if(others.length) base+=" and "+others.join(" and ");
-   return base;
- }
- const phrases=items.map(x=>fmt(x.v,x.p));
- if(phrases.length===1) return phrases[0];
- return phrases[0]+phrases.slice(1).map((p,i)=>i===phrases.length-2?` and ${p.replace(/^with /,"")}`:`, ${p.replace(/^with /,"")}`).join("");
- }
-
- const bottom=get("outfit","Bottom"),top=get("outfit","Top");
- const swimItems=[bt,bb,op,ss];
- const hideLegs=legCoveringBottoms.includes(bottom)||["Jumpsuit","Coveralls"].includes(one)||dress==="Maxi Dress"||swimItems.some(x=>["Wetsuit","Dive Suit"].includes(x));
- const hideArms=armCoveringTops.includes(top)||one==="Coveralls"||swimItems.includes("Wetsuit");
- if(hideLegs){R["character.LeftLegTattoo"]="None";R["character.RightLegTattoo"]="None";}
- if(hideArms){R["character.LeftArmTattoo"]="None";R["character.RightArmTattoo"]="None";}
  const tattoo=tattooPhrase();
  const makeup=get("character","Makeup");
  const makeupDesc=(makeup==="None")?"":`with ${makeup.toLowerCase()} makeup`;
